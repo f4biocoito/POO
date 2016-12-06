@@ -21,12 +21,57 @@
     <ClInclude Include="Load.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Configuracao.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Edificios.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ataques.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LerFicheiro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LerComandos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Simulacao.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Seres.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Consola.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Configuracao.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Edificios.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ataques.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LerComandos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LerFicheiro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulacao.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Seres.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

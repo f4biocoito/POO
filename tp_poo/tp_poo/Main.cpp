@@ -7,5 +7,6 @@ using namespace std;
 
 int main() {
 
+	cout << "ola e adeus" << endl;
 	return 0;
 }

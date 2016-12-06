@@ -142,12 +142,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Ataques.h" />
+    <ClInclude Include="Configuracao.h" />
     <ClInclude Include="Consola.h" />
+    <ClInclude Include="Defines.h" />
+    <ClInclude Include="Edificios.h" />
+    <ClInclude Include="LerComandos.h" />
+    <ClInclude Include="LerFicheiro.h" />
     <ClInclude Include="Load.h" />
+    <ClInclude Include="Seres.h" />
+    <ClInclude Include="Simulacao.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Ataques.cpp" />
+    <ClCompile Include="Configuracao.cpp" />
     <ClCompile Include="Consola.cpp" />
+    <ClCompile Include="Edificios.cpp" />
+    <ClCompile Include="LerComandos.cpp" />
+    <ClCompile Include="LerFicheiro.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Seres.cpp" />
+    <ClCompile Include="Simulacao.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
