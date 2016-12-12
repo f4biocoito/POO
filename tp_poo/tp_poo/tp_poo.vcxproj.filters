@@ -24,6 +24,9 @@
     <ClInclude Include="Configuracao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Edificios.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Ataques.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -40,15 +43,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Defines.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="colonia.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Interacao.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Edificios.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -78,12 +72,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Seres.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="colonia.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Interacao.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

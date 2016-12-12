@@ -143,12 +143,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Ataques.h" />
-    <ClInclude Include="colonia.h" />
     <ClInclude Include="Configuracao.h" />
     <ClInclude Include="Consola.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Edificios.h" />
-    <ClInclude Include="Interacao.h" />
     <ClInclude Include="LerComandos.h" />
     <ClInclude Include="LerFicheiro.h" />
     <ClInclude Include="Load.h" />
@@ -157,11 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ataques.cpp" />
-    <ClCompile Include="colonia.cpp" />
     <ClCompile Include="Configuracao.cpp" />
     <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Edificios.cpp" />
-    <ClCompile Include="Interacao.cpp" />
     <ClCompile Include="LerComandos.cpp" />
     <ClCompile Include="LerFicheiro.cpp" />
     <ClCompile Include="Main.cpp" />
