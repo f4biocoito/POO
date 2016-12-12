@@ -32,21 +32,21 @@ public:
 
 	//Funcoes get
 
-	string getId() { return id; }
-	int getHP() { return hp; }
-	int getDano() { return dano; }
-	int getDefesa() { return defesa; }
-	int getVelocidade() { return velocidade; };
-	int getCordX() { return cordX; }
-	int getCordY() { return cordY; }
-	int getCordDestinoX() { return cordDestinoX; }
-	int getCordDestinoY() { return cordDestinoY; }
-	string getAlvo() { return alvo; }
-	int getCordAlvoX() { return cordAlvoX; }
-	int getCordAlvoY() { return cordAlvoY; }
-	bool getWandering() { return wandering; }
-	string getStatus() { return status; }
-	int getCargaMax() { return capCarga; }
+	string getId const() { return id; }
+	int getHP const() { return hp; }
+	int getDano const() { return dano; }
+	int getDefesa const() { return defesa; }
+	int getVelocidade const() { return velocidade; };
+	int getCordX const() { return cordX; }
+	int getCordY const() { return cordY; }
+	int getCordDestinoX const() { return cordDestinoX; }
+	int getCordDestinoY const() { return cordDestinoY; }
+	string getAlvo const() { return alvo; }
+	int getCordAlvoX const() { return cordAlvoX; }
+	int getCordAlvoY const() { return cordAlvoY; }
+	bool getWandering const() { return wandering; }
+	string getStatus const() { return status; }
+	int getCargaMax const() { return capCarga; }
 
 	//Set
 	void setHP(int h) { hp = h; }
@@ -54,10 +54,11 @@ public:
 	void setStatus(string estado) { status = estado; }
 	void setCordDestinoX(int x) { cordDestinoX = x; }
 	void setCordDestinoY(int y) { cordDestinoY = y; }
+	void setAtacar(int xAlvo, int yAlvo, string nome);
 
 	void move();
-	
 
 
 
+}
 #endif

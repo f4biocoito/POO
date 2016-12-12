@@ -8,10 +8,12 @@
 #include <string>
 
 #include "Ataques.h"
+#include "colonia.h"
 #include "Configuracao.h"
 #include "Consola.h"
-#include "Edificios.h"
 #include "Defines.h"
+#include "Edificios.h"
+#include "Interacao.h"
 #include "LerComandos.h"
 #include "LerFicheiro.h"
 #include "Seres.h"

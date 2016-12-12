@@ -1,7 +1,7 @@
 
 #include "Seres.h"
 
-void Seres::move()//faltam verifica??es
+void Seres::move()
 {
 	for (int i = 0; i<velocidade;i++)
 	{
@@ -56,7 +56,7 @@ void Seres::move()//faltam verifica??es
 	}
 }
 
-void Unidade::setAtacar(int xAlvo, int yAlvo, string nome)
+void Seres::setAtacar(int xAlvo, int yAlvo, string nome)
 {
 	alvo = nome;
 	cordAlvoX = xAlvo;
