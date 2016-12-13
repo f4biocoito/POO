@@ -3,11 +3,17 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 #include "Consola.h"
+#include "Caracteristicas.h"
+
 using namespace std;
 
 class Seres
 {
+	//caracteristicas
+	vector <Caracteristicas*> caracteristicas;
+
 protected:
 	string id;
 	int hp;

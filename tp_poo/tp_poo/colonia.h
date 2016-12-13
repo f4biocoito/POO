@@ -22,7 +22,6 @@ class Colonia
     vector <Edificio*> BuildingList;
     int moedas;
     bool castExiste;
-	bool quartExiste;
     int numTorres;
     int numQuint;
 public:
@@ -32,8 +31,8 @@ public:
 	
 	int pesquisaUnidade(string id);
  // gets
-    vector <Seres*> getUnitList const(){ return UnitList; }
-    vector <Edificio*> getBuildingList const(){ return BuildingList; }
+    vector <Seres*> getUnitList (){ return UnitList; }
+    vector <Edificio*> getBuildingList (){ return BuildingList; }
     int getNumUnits const(){ return numUnits; }
     string getId const(){ return id; }
 	int getMoedas const() { return moedas; }
@@ -60,8 +59,8 @@ public:
     void removeCastle();
  
 //adicionar unidades - NAO E BEM ISTO MAS FICA A IDEIA - faltam os perfis / caracteristicas
-    void addSoldier(int x, int y, string name);
-    void mkeSoldier(string name);
+    void addSer(int x, int y, string name);
+    void mkeSer(string name);
 
  //verifica posicoes
     void UnitInPosition(int x,int y,int xMax, int yMax);

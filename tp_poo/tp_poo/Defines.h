@@ -7,8 +7,9 @@
 
 using namespace std;
 
-#define ALTURA 20
-#define LARGURA 40
+#define ALTURAINI 20
+#define LARGURAINI 40
+
 
 
 #endif

@@ -6,8 +6,10 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 #include "Ataques.h"
+#include "Caracteristicas.h"
 #include "colonia.h"
 #include "Configuracao.h"
 #include "Consola.h"

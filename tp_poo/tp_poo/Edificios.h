@@ -68,7 +68,7 @@ public:
 		x = x * 3 + 1;
 		y = y * 3 + 1;
 
-		Consola::setTextColor(c.CINZENTO);
+		Consola::setTextColor(Consola::CINZENTO);
 
 		Consola::gotoxy(x - 1, y - 1);
 		cout << (char)197 << (char)197 << (char)197;

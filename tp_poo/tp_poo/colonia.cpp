@@ -52,12 +52,12 @@ void Colonia::removeCastle()
 
 
 //adicionar seres
-void Colonia::addSoldier(int x, int y, string name)
+void Colonia::addSer(int x, int y, string name)
 {
 
 }
 
-void Colonia::mkeSoldier(string name)
+void Colonia::mkeSer(string name)
 {
     for(vector<Edificio*>::iterator it = BuildingList.begin(); it != BuildingList.end(); ++it) 
     {

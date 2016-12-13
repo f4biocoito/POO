@@ -24,15 +24,6 @@
     <ClInclude Include="Configuracao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ataques.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LerFicheiro.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LerComandos.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Simulacao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -51,6 +42,12 @@
     <ClInclude Include="Edificios.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Caracteristicas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Consola.cpp">
@@ -65,15 +62,6 @@
     <ClCompile Include="Edificios.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ataques.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LerComandos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LerFicheiro.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Simulacao.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -84,6 +72,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Interacao.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Caracteristicas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mapa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
