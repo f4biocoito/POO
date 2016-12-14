@@ -171,9 +171,9 @@ bool Interacao::VerificaComando(string comando) {
 	//		map->mapaAlteraColonia_economia(25); // defeito
 		}
 
-		if (map->getX() < 20 || map->getY() < 40) {
-			map->setX(20);
-			map->setY(40);
+		if (map.getX() < 20 || map.getY() < 40) {
+			map.setX(20);
+			map.setY(40);
 		}
 
 
@@ -186,7 +186,7 @@ bool Interacao::VerificaComando(string comando) {
 
 string Interacao::getComandos() {
 	ostringstream oss;
-
+	 
 	oss << "dim linhas colunas\n" << "moedas numero\n" <<
 		"oponentes numero\n" << "castelo colonia lin col\n" <<
 		"mkperfil letra\n" << "addperfil letra caracteristica\n" <<

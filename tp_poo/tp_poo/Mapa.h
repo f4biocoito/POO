@@ -9,14 +9,16 @@ class Mapa
 {
 	int dimx;
 	int dimy;
-	vector <Colonia > populacoes;
-private:
+	//vector <Colonia> populacoes;
+public:
 	Mapa(int x=0, int y=0);
-	bool desenhaTabuleiro(int cmax, int cmin, int lmax, int lmin);
+	vector <Colonia> populacoes;
 	void PopInGrid(int colMax, int colMin, int linhaMax, int linhaMin);
-	void setX(int x) { dimx = x; }
-	void setY(int y) { dimx = y; }
+	void setX(int x);
+	void setY(int y);
 
+	int getX(){return dimx;}
+	int getY(){return dimy;}
 
 };
 

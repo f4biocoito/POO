@@ -9,8 +9,14 @@ using namespace std;
 
 int main() {
 
-	Colonia* teste  = new Colonia("aaa");
-//	populacoes.push_back(teste);
-	
-	return 0;
+	char car;
+	Consola::setTextSize(12, 12);
+	Consola::setScreenSize(40, 55);
+
+	Consola::setTextColor(Consola::PRETO);
+	Consola::setBackgroundColor(Consola::BRANCO_CLARO);
+	Consola::clrscr();
+
+
+
 }
