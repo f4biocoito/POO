@@ -70,17 +70,17 @@ void Colonia::addSer(int x, int y, string name)
 //    }
 //}
 
-//verifica posicoes
-void Colonia::UnitInPosition(int x, int y,int xmax, int ymax)//alterar para desenho
+//verifica posicoes e desenha
+void Colonia::UnitInPosition(int x, int y, int xMax, int yMax, vector <Seres *> UList)
 {
-    for(vector<Seres*>::iterator it = UnitList.begin(); it != UnitList.end(); ++it) {
+    for(vector<Seres*>::iterator it = UList.begin(); it != UList.end(); ++it) {
         if((*it)->getCordX()==x&&(*it)->getCordY()==y)
-        {(*it)->desenha(x-xmax,y-ymax);}
+        {(*it)->desenha(x-xMax,y-yMax);}
     }
 }
-void Colonia::BuildingInPosition(int x, int y,int xMax, int yMax) //alterar para desenho
+void Colonia::BuildingInPosition(int x, int y,int xMax, int yMax, vector <Edificio *> BList)
 {
-    for(vector<Edificio*>::iterator it = BuildingList.begin(); it != BuildingList.end(); ++it) {
+    for(vector<Edificio*>::iterator it = BList.begin(); it != BList.end(); ++it) {
         if((*it)->getCordX()==x&&(*it)->getCordY()==y)
         {(*it)->desenha(x-xMax,y-yMax);}
     }

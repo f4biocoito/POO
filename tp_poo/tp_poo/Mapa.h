@@ -9,11 +9,11 @@ class Mapa
 {
 	int dimx;
 	int dimy;
-	//vector <Colonia> populacoes;
 public:
 	Mapa(int x=0, int y=0);
-	vector <Colonia> populacoes;
-	void PopInGrid(int colMax, int colMin, int linhaMax, int linhaMin);
+	vector <Colonia*> populacoes;
+	void UnitsInGrid(int colMax, int colMin, int linhaMax, int linhaMin);
+	void BuildingsInGrid(int colMax, int colMin, int linhaMax, int linhaMin);
 	void setX(int x);
 	void setY(int y);
 

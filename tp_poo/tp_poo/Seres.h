@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <iterator>
 #include "Consola.h"
 using namespace std;
 
@@ -35,6 +36,7 @@ public:
 	{
 			
 	}
+
 
 
 
@@ -74,9 +76,7 @@ public:
 class Perfil1 : Seres {
 
 	
-public:
-//	Castelo(int x, int y, string sis) :Edificio(x, y, sis) { hp = 200; hpMax = 200; }
-	
+public:	
 	Perfil1(string id , int hp , int forca , int velocidade , int dano , int defesa , int cordX , int cord) :Seres(id="", hp = 10,  forca = 10, velocidade = 1, dano = 1, defesa = 1, cordX=0, cord=0) {}
 	void desenha(int x, int y)
 	{

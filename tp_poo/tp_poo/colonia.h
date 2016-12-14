@@ -17,21 +17,21 @@ class Colonia
 	string idAlvo;
     int numUnits;
     int numBuildings;
-	vector <Seres*> UnitList;
-    vector <Edificio*> BuildingList;
+	vector <Seres* > UnitList;
+    vector <Edificio* > BuildingList;
     int moedas;
     bool castExiste;
     int numTorres;
     int numQuint;
 public:
 	//Constructor
-     
+
 	Colonia(string name = "");
 	
 	int pesquisaUnidade(string id);
  // gets
-    vector <Seres*> getUnitList (){ return UnitList; }
-    vector <Edificio*> getBuildingList (){ return BuildingList; }
+    vector <Seres* > getUnitList (){ return UnitList; }
+    vector <Edificio* > getBuildingList (){ return BuildingList; }
     int getNumUnits (){ return numUnits; }
     string getId (){ return id; }
 	int getMoedas () { return moedas; }
@@ -62,8 +62,8 @@ public:
  //   void mkeSer(string name);
 
  //verifica posicoes
-	void UnitInPosition(int x,int y,int xMax, int yMax);
-    void BuildingInPosition(int x, int y,int xMax, int yMax);
+	void UnitInPosition(int x,int y,int xMax, int yMax, vector <Seres* > UList);
+	void BuildingInPosition(int x, int y, int xMax, int yMax, vector <Edificio *> BList);
 
 //movimento
     void moveUnits();

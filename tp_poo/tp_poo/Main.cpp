@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
 
-	char car;
+//	char car;
 	Consola::setTextSize(12, 12);
 	Consola::setScreenSize(40, 55);
 

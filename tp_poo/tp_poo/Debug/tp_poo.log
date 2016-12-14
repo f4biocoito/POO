@@ -1,34 +1,8 @@
 ﻿  colonia.cpp
   Mapa.cpp
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.cpp(31): error C2228: left of '.BuildingInPosition' must have class/struct/union
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.cpp(32): error C2228: left of '.UnitInPosition' must have class/struct/union
+  Generating Code...
+  Skipping... (no relevant changes detected)
   Main.cpp
   Interacao.cpp
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(92): error C2248: 'Mapa::setX': cannot access private member declared in class 'Mapa'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(17): note: see declaration of 'Mapa::setX'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(9): note: see declaration of 'Mapa'
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(93): error C2248: 'Mapa::setY': cannot access private member declared in class 'Mapa'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(18): note: see declaration of 'Mapa::setY'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(9): note: see declaration of 'Mapa'
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(97): error C2248: 'Mapa::setX': cannot access private member declared in class 'Mapa'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(17): note: see declaration of 'Mapa::setX'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(9): note: see declaration of 'Mapa'
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(98): error C2248: 'Mapa::setY': cannot access private member declared in class 'Mapa'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(18): note: see declaration of 'Mapa::setY'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(9): note: see declaration of 'Mapa'
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(174): error C2819: type 'Mapa' does not have an overloaded member 'operator ->'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(9): note: see declaration of 'Mapa'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(174): note: did you intend to use '.' instead?
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(174): error C2039: 'getX': is not a member of 'Mapa'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(9): note: see declaration of 'Mapa'
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(174): error C2039: 'getY': is not a member of 'Mapa'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(9): note: see declaration of 'Mapa'
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(175): error C2819: type 'Mapa' does not have an overloaded member 'operator ->'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(9): note: see declaration of 'Mapa'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(175): note: did you intend to use '.' instead?
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(175): error C2232: '->Mapa::setX': left operand has 'class' type, use '.'
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(176): error C2819: type 'Mapa' does not have an overloaded member 'operator ->'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\mapa.h(9): note: see declaration of 'Mapa'
-  e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(176): note: did you intend to use '.' instead?
-e:\onedrive\isec\3º ano\1º semestre\programação orientada a objetos\trabalho\poo\tp_poo\tp_poo\interacao.cpp(176): error C2232: '->Mapa::setY': left operand has 'class' type, use '.'
-  Generating Code...
+  tp_poo.vcxproj -> E:\OneDrive\ISEC\3º ano\1º semestre\Programação orientada a objetos\Trabalho\POO\tp_poo\Debug\tp_poo.exe
+  tp_poo.vcxproj -> E:\OneDrive\ISEC\3º ano\1º semestre\Programação orientada a objetos\Trabalho\POO\tp_poo\Debug\tp_poo.pdb (Full PDB)
