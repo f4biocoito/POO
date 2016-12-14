@@ -2,10 +2,7 @@
 
 #include "Interacao.h"
 
-Interacao::Interacao()
-{
 
-}
 
 int Interacao::menu() 
 {
@@ -43,7 +40,7 @@ void Interacao::corre()
 	}
 }
 
-void Interacao::verCaracteristicas()
+string Interacao::verCaracteristicas()
 {
 	ostringstream oss;
 	
@@ -92,13 +89,13 @@ bool Interacao::VerificaComando(string comando) {
 		iss2 >> y1;
 		if (iss1 && iss2) {
 			if (x1 >= 20 && y1 >= 40) {
-				mapa->setX(x1);
-				mapa->setY(y1);
+				map.setX(x1);
+				map.setY(y1);
 			}
 			else {
 				cout << "Valor Invalido" << endl;
-				mapa->setX(-1);
-				mapa->setY(-1);
+				map.setX(-1);
+				map.setY(-1);
 			}
 
 		}
@@ -106,36 +103,14 @@ bool Interacao::VerificaComando(string comando) {
 	}
 
 	else if (cmd[0] == "moedas") {
-		istringstream iss(cmd[1]);
-		int x;
-		iss >> x;
-		if (iss) {
-			if (x >= 0) {
-				mapa->mapaAlteraColonia_economia(x);
-				flag_moeda = true;
-			}
-			else {
-				cout << "Valor Invalido" << endl;
-			}
-		}
+		
 		return true;
 	}
 
 	else if (cmd[0] == "oponentes") {
-		istringstream iss(cmd[1]);
-		int x;
-		iss >> x;
-		if (iss) {
-			if (x < 1) { // defeito
-				cout << "Valor invalido" << endl;
-			}
-			else {
-				for (unsigned int i = 0; i < x + 1; i++) {
-					mapa->AdicionaColonia(new Colonia);
-				}
-			}
+		
 			return true;
-		}
+		
 	}
 
 	else if (cmd[0] == "castelo") {
@@ -143,43 +118,26 @@ bool Interacao::VerificaComando(string comando) {
 		char x;
 		iss >> x;
 		if (iss) {
-			if (mapa->pesquisaColonia(x) != -1) {
+			/*if (map->pesquisaColonia(x) != -1) {
 				istringstream iss1(cmd[2]);
 				istringstream iss2(cmd[3]);
 				int x1, y1;
 				iss1 >> x1;
 				iss2 >> y1;
 				if (iss1 && iss2) {
-					mapa->mapaAlteraColonia_castelo(x, x1, y1);
+					map->mapaAlteraColonia_castelo(x, x1, y1);
 				}
-			}
+			}*/
 		}
 		return true;
 	}
 
 	else if (cmd[0] == "mkperfil") {
-		istringstream iss(cmd[1]);
-		char x;
-		iss >> x;
-		if (iss) {
-			mapa->AdicionaPerfil(new Perfil(x));
-		}
+		
 		return true;
 	}
 
 	else if (cmd[0] == "addperfil") {
-		istringstream iss(cmd[1]);
-		char x;
-		iss >> x;
-		if (iss) {
-			istringstream iss1(cmd[2]);
-			int y;
-			iss1 >> y;
-			if (iss1) {
-				mapa->mapaAltera_perfil(x, y);
-			}
-
-		}
 
 		return true;
 	}
@@ -195,10 +153,7 @@ bool Interacao::VerificaComando(string comando) {
 	}
 
 	else if (cmd[0] == "load") {
-		bool checkf = false;
-		if (Lerficheiro(cmd[1]))
-			checkf = true;
-		if (!checkf)
+		if (!Lerficheiro(cmd[1]))
 			cout << "Leitura nao Efectuada!!" << endl;
 		return true;
 	}
@@ -206,19 +161,19 @@ bool Interacao::VerificaComando(string comando) {
 	else if (cmd[0] == "inicio") {
 		flag = 1;
 
-		if (mapa->Ver_size_colonias()<2) {
-			for (unsigned int i = 0; i < 2; i++) {
-				mapa->AdicionaColonia(new Colonia);
-			}
-		}
+		//if (map->Ver_size_colonias()<2) {
+			//for (unsigned int i = 0; i < 2; i++) {
+	//			map->AdicionaColonia(new Colonia);
+		//	}
+		//}
 
 		if (!flag_moeda) {
-			mapa->mapaAlteraColonia_economia(25); // defeito
+	//		map->mapaAlteraColonia_economia(25); // defeito
 		}
 
-		if (mapa->getX() < 20 || mapa->getY() < 40) {
-			mapa->setX(20);
-			mapa->setY(40);
+		if (map->getX() < 20 || map->getY() < 40) {
+			map->setX(20);
+			map->setY(40);
 		}
 
 
@@ -226,7 +181,6 @@ bool Interacao::VerificaComando(string comando) {
 	}
 
 	return false;
-
 }
 
 

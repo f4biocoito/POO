@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1C474E03-9296-46F3-A4C0-D47A3F669985}</ProjectGuid>
+    <ProjectGuid>{F245D57D-84D3-4CA6-89D8-A4CFAFDAFAB0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>tp_poo</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>

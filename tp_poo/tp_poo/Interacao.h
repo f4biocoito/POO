@@ -7,15 +7,17 @@
 #include <istream>
 #include <iterator>
 #include <iostream>
-#include "Load.h"
+#include "Mapa.h"
+
 
 class Interacao {
-	
+	int flag;
+	Mapa map;
+	bool flag_moeda;
 public:
-	Interacao();
 	int menu();
 	void corre();
-	void verCaracteristicas();
+	string verCaracteristicas();
 	void inicio();
 	bool VerificaComando(string comando);
 	string getComandos();

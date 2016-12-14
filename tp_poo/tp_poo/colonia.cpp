@@ -1,10 +1,10 @@
 
 #include "colonia.h"
 
-Colonia::Colonia(string name = "") {
+Colonia::Colonia(string name) {
 	id = name; 
 	castExiste = false; 
-	quartExiste = false; 
+
 	numQuint = 0;
 	numUnits = 0; 
 	numBuildings = 0; 
@@ -14,7 +14,7 @@ Colonia::Colonia(string name = "") {
 int Colonia::pesquisaUnidade(string id)
 {
          
-    for(vector<Seres*>::iterator it = UnitList.begin(); it != UnitList.end(); ++it) 
+    for(auto it = UnitList.begin(); it != UnitList.end(); ++it) 
     {
             if((*it)->getId()==id)
             {
@@ -57,25 +57,25 @@ void Colonia::addSer(int x, int y, string name)
 
 }
 
-void Colonia::mkeSer(string name)
-{
-    for(vector<Edificio*>::iterator it = BuildingList.begin(); it != BuildingList.end(); ++it) 
-    {
-        if(((*it)->getId()).at(0)=='Q')
-        {
-            Seres* u = new Soldado((*it)->getCordX(),(*it)->getCordY(),name);
-            UnitList.push_back(u);
-            incNumUnits();
-        }
-    }
-}
+//void Colonia::mkeSer(string name)
+//{
+//    for(vector<Edificio*>::iterator it = BuildingList.begin(); it != BuildingList.end(); ++it) 
+//    {
+//        if(((*it)->getId()).at(0)=='Q')
+//        {
+//            Seres* u = new Soldado((*it)->getCordX(),(*it)->getCordY(),name);
+//            UnitList.push_back(u);
+//            incNumUnits();
+//        }
+//    }
+//}
 
 //verifica posicoes
-void Colonia::UnitInPosition(int x, int y,int xMax, int yMax)//alterar para desenho
+void Colonia::UnitInPosition(int x, int y,int xmax, int ymax)//alterar para desenho
 {
     for(vector<Seres*>::iterator it = UnitList.begin(); it != UnitList.end(); ++it) {
         if((*it)->getCordX()==x&&(*it)->getCordY()==y)
-        {(*it)->desenha(x-xMax,y-yMax);}
+        {(*it)->desenha(x-xmax,y-ymax);}
     }
 }
 void Colonia::BuildingInPosition(int x, int y,int xMax, int yMax) //alterar para desenho
@@ -86,6 +86,7 @@ void Colonia::BuildingInPosition(int x, int y,int xMax, int yMax) //alterar para
     }
      
 }
+
 
 //movimento
 void Colonia::moveUnits()
@@ -112,40 +113,40 @@ void Colonia::setRepair(string idu,string ide)// mudar o destino do ser para o e
                     {
                         x=(*et)->getCordX();
                         y=(*et)->getCordY();
-                        (*it)->repair(ide,x,y);
+                     //   (*it)->repair(ide,x,y);
                     }
                 }
             }
         }
 }
  
-void Colonia::repair(string ide, int x, int y)//reparar só se já estiver no destino
-{
-	vector<Seres*>::iterator it;
-	for (it = UnitList.begin(); it != UnitList.end(); ++it)
-	{
-		if (((*it)->getId()).at(0) == 'P' || ((*it)->getId()).at(0) == 'B')
-		{
-			if ((*it)->getIdBuilding() != "")
-			{
-
-				for (vector<Edificio*>::iterator et = BuildingList.begin(); et != BuildingList.end(); ++et)
-				{
-					if ((*it)->getIdBuilding() == (*et)->getId())
-					{
-						(*et)->conserta((*it)->conserta());
-						if ((*et)->getHP() == (*et)->getHPMax())
-						{
-							(*it)->setConserta("", (*it)->getCordX(), (*it)->getCordY());
-						}
-						break;
-					}
-				}
-
-			}
-		}
-	}
-}
+//void Colonia::repair(string ide, int x, int y)//reparar só se já estiver no destino
+//{
+//	vector<Seres*>::iterator it;
+//	for (it = UnitList.begin(); it != UnitList.end(); ++it)
+//	{
+//		if (((*it)->getId()).at(0) == 'P' || ((*it)->getId()).at(0) == 'B')
+//		{
+//			if ((*it)->getIdBuilding() != "")
+//			{
+//
+//				for (vector<Edificio*>::iterator et = BuildingList.begin(); et != BuildingList.end(); ++et)
+//				{
+//					if ((*it)->getIdBuilding() == (*et)->getId())
+//					{
+//						(*et)->conserta((*it)->conserta());
+//						if ((*et)->getHP() == (*et)->getHPMax())
+//						{
+//							(*it)->setConserta("", (*it)->getCordX(), (*it)->getCordY());
+//						}
+//						break;
+//					}
+//				}
+//
+//			}
+//		}
+//	}
+//}
 
 //ataques
 int Colonia::getXFromUnitID(string idu)
@@ -225,7 +226,7 @@ void Colonia::setBuild(string idu, string nome, int x, int y)
 }
 int Colonia::build(int numBuilds) 
 {
-
+	return 0;
 }
 
 //informa??o
@@ -260,6 +261,8 @@ void Colonia :: printUnitList(int y)
 
 string infoSel(string nome)
 {
-
+	ostringstream oss;
+	oss << "a" << endl;
+	return oss.str();
 }
 

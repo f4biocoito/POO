@@ -17,11 +17,11 @@ public:
 	Edificio(int x, int y, string sis) { id = sis; cordX = x; cordY = y; }
 
 	//funcoes get
-	string getId const() { return id; }
-	int getHP const() { return hp; }
-	int getHPMax const() { return hpMax; }
-	int getCordX const() { return cordX; }
-	int getCordY const() { return cordY; }
+	string getId () { return id; }
+	int getHP () { return hp; }
+	int getHPMax () { return hpMax; }
+	int getCordX () { return cordX; }
+	int getCordY () { return cordY; }
 
 	//funcoes set
 	void perdeHP(int dano) { hp = hp - dano; }

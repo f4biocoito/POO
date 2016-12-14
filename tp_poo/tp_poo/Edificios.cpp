@@ -1,5 +1,5 @@
 
-#include "Edificio.h"
+#include "Edificios.h"
 
 void Edificio::conserta(int recupera)
 {

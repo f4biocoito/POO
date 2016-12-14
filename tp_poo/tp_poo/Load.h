@@ -8,7 +8,6 @@
 #include <string>
 #include <vector>
 
-#include "Ataques.h"
 #include "Caracteristicas.h"
 #include "colonia.h"
 #include "Configuracao.h"
@@ -16,8 +15,7 @@
 #include "Defines.h"
 #include "Edificios.h"
 #include "Interacao.h"
-#include "LerComandos.h"
-#include "LerFicheiro.h"
+#include "Mapa.h"
 #include "Seres.h"
 #include "Simulacao.h"
 
