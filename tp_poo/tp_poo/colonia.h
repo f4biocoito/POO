@@ -7,9 +7,8 @@
 #include <time.h>
 #include <sstream>
  
-#include "Edificio.h"
+#include "Edificios.h"
 #include "Seres.h"
-
 using namespace std;
  
 class Colonia
@@ -33,14 +32,14 @@ public:
  // gets
     vector <Seres*> getUnitList (){ return UnitList; }
     vector <Edificio*> getBuildingList (){ return BuildingList; }
-    int getNumUnits const(){ return numUnits; }
-    string getId const(){ return id; }
-	int getMoedas const() { return moedas; }
+    int getNumUnits (){ return numUnits; }
+    string getId (){ return id; }
+	int getMoedas () { return moedas; }
     
     int getNumBuildings(){return numBuildings;}
   
 //verifica se castelo ja existe
-    bool getcastExiste const(){return castExiste;}
+    bool getcastExiste (){return castExiste;}
 	void setcastExiste(bool existecast){castExiste=existecast;}
 
 //set
@@ -60,10 +59,10 @@ public:
  
 //adicionar unidades - NAO E BEM ISTO MAS FICA A IDEIA - faltam os perfis / caracteristicas
     void addSer(int x, int y, string name);
-    void mkeSer(string name);
+ //   void mkeSer(string name);
 
  //verifica posicoes
-    void UnitInPosition(int x,int y,int xMax, int yMax);
+	void UnitInPosition(int x,int y,int xMax, int yMax);
     void BuildingInPosition(int x, int y,int xMax, int yMax);
 
 //movimento
@@ -71,7 +70,7 @@ public:
 
  //conserta
 	void setRepair(string idu,string ide);
-	void repair(string ide, int x, int y);
+//	void repair(string ide, int x, int y);
 
 //ataques
     int getXFromUnitID(string idu);
@@ -87,7 +86,7 @@ public:
  //informa??o
     int printBuildingList();
     void printUnitList(int y);
-    string infoSel(string nome);
+  //  string infoSel(string nome);
  
 };
 #endif  
