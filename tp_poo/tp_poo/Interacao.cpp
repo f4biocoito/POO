@@ -1,18 +1,13 @@
 
-
 #include "Interacao.h"
-
-
 
 int Interacao::menu() 
 {
 	int opcao = -1;
 
 	cout << "\n 0 - Sair"
-		<< "\n 1 - Acrescentar pessoas lidas de ficheiro de texto"
-		<< "\n 2 - Acrescentar pessoa lida do teclado"
-		<< "\n 3 - Listar"
-		<< "\n 4 - Gravar em ficheiro de texto";
+		<< "\n 1 - Configuracao"
+		;
 	do {
 		cout << "\n opcao > ";
 		string s;
@@ -34,46 +29,37 @@ void Interacao::corre()
 			break;
 		case 1:
 		{
+			inicio();
+			cout << "iniciar" << endl;
 			break;
 		}
 		}
 	}
 }
 
-string Interacao::verCaracteristicas()
+
+
+void Interacao::inicio() 
 {
-	ostringstream oss;
-	
-	oss << "Bandeira	Superior	PeleDura	Armadura \n"<<
-		"Faca	Espada	Agresao	Ecologico	HeatSeeker \n"<<
-		"BuildSeeker	Walker	Remedio	SecondChance \n"<< endl;
-
-	return oss.str();
-}
-
-void Interacao::inicio() {
 	string cmd;
 	while (1) {
-		cout << getComandos();
-		if (flag = 1) { // inicio programa
+		if (iniciar) { // inicio programa
 			break;
 		}
-
-		cout << "[COMANDO]: ";
-		//cin.ignore(numeric_limits <streamsize> ::max(), '\n');
+		cout << "Config>>: ";
+		cin.clear();
 		getline(cin, cmd);
-		if (cmd == "comando") {
+		if (cmd == "comandos") {
 			cout << getComandos();
 		}
 		else if (!VerificaComando(cmd)) {
 			cout << "!!!Comando invalido!!!\n" << endl;
 		}
-
 	}
-
 }
 
-bool Interacao::VerificaComando(string comando) {
+bool Interacao::VerificaComando(string comando) 
+{
 	string cmd[5];
 	istringstream iss(comando);
 	int i = 0;
@@ -104,12 +90,14 @@ bool Interacao::VerificaComando(string comando) {
 
 	else if (cmd[0] == "moedas") {
 		
+		Consola::gotoxy(20, 20);
+		cout << cmd[0];
 		return true;
 	}
 
 	else if (cmd[0] == "oponentes") {
 		
-			return true;
+		return true;
 		
 	}
 
@@ -159,42 +147,30 @@ bool Interacao::VerificaComando(string comando) {
 	}
 
 	else if (cmd[0] == "inicio") {
-		flag = 1;
-
+		iniciar = true;
 		//if (map->Ver_size_colonias()<2) {
 			//for (unsigned int i = 0; i < 2; i++) {
 	//			map->AdicionaColonia(new Colonia);
 		//	}
 		//}
 
-		if (!flag_moeda) {
+		//if (!flag_moeda) {
 	//		map->mapaAlteraColonia_economia(25); // defeito
-		}
+		//}
 
 		if (map.getX() < 20 || map.getY() < 40) {
 			map.setX(20);
 			map.setY(40);
 		}
 
+		Colonia(a);
+		cout << "criar colonia" << endl;
+
 
 		return true;
 	}
 
 	return false;
-}
-
-
-string Interacao::getComandos() {
-	ostringstream oss;
-	 
-	oss << "dim linhas colunas\n" << "moedas numero\n" <<
-		"oponentes numero\n" << "castelo colonia lin col\n" <<
-		"mkperfil letra\n" << "addperfil letra caracteristica\n" <<
-		"subperfil letra caracteristica\n" << "rmperfil letra\n" <<
-		"load ficheiro\n" << "inico\n" << endl;
-
-	return oss.str();
-
 }
 
 bool Interacao::Lerficheiro(string nome)
@@ -213,4 +189,32 @@ bool Interacao::Lerficheiro(string nome)
 	}
 	dados.close();
 	return true;
+}
+
+string Interacao::getComandos() 
+{
+	ostringstream oss;
+	 
+	oss << "dim linhas colunas\n" << "moedas numero\n" <<
+		"oponentes numero\n" << "castelo colonia lin col\n" <<
+		"mkperfil letra\n" << "addperfil letra caracteristica\n" <<
+		"subperfil letra caracteristica\n" << "rmperfil letra\n" <<
+		"load ficheiro\n" << "inico\n" << endl;
+
+	return oss.str();
+}
+
+string Interacao::getCaracteristicas()
+{
+	ostringstream oss;
+
+	oss << "Bandeira\n" << "Superior\n" << 
+		"PeleDura\n" << "Armadura \n" <<
+		"Faca\n" << "Espada\n" << 
+		"Agresao\n" << "Ecologico\n" << 
+		"HeatSeeker \n" << "BuildSeeker\n" << 
+		"Walker\n" << "Remedio\n" << 
+		"SecondChance \n" << endl;
+
+	return oss.str();
 }

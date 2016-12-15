@@ -12,7 +12,7 @@ int maxX = 9, maxY = 9;
 
 int main() {
 
-	char car;
+	//char car;
 	Consola::setTextSize(12, 12);
 	Consola::setScreenSize(40, 55);
 
@@ -22,30 +22,34 @@ int main() {
 
 	Interacao jogo;
 
-	while (!sair) //ciclo principal
-	{
-	// while ciclo de leitura de comandos
-	//{le comandos }
-	
-	Consola::clrscr();
-	car=Consola::getch();
-	if (car == Consola::ESCAPE) break;
-	if ((car != Consola::ESQUERDA) && (car != Consola::DIREITA) && (car != Consola::CIMA) && (car != Consola::BAIXO)) 
-	{
-		if (car == Consola::ENTER) continue;
-		else 
-		{
-			//leComandos();
-			//joga pc
-			continue;
-		}
-	}
-
-	//SCROLL
-	scroll(car);
+	jogo.corre();
 
 
-	} //FIM DO CICLO WHILE DE SAIR 
+
+	//while (!sair) //ciclo principal
+	//{
+	//// while ciclo de leitura de comandos
+	////{le comandos }
+	//
+	//Consola::clrscr();
+	//car=Consola::getch();
+	//if (car == Consola::ESCAPE) break;
+	//if ((car != Consola::ESQUERDA) && (car != Consola::DIREITA) && (car != Consola::CIMA) && (car != Consola::BAIXO)) 
+	//{
+	//	if (car == Consola::ENTER) continue;
+	//	else 
+	//	{
+	//		//leComandos();
+	//		//joga pc
+	//		continue;
+	//	}
+	//}
+
+	////SCROLL
+	//scroll(car);
+
+
+	//} //FIM DO CICLO WHILE DE SAIR 
 
 }
 

@@ -9,19 +9,19 @@
 #include <iostream>
 #include "Mapa.h"
 
+static bool iniciar = false;
 
 class Interacao {
-	int flag;
 	Mapa map;
 	bool flag_moeda;
 public:
 	int menu();
 	void corre();
-	string verCaracteristicas();
 	void inicio();
 	bool VerificaComando(string comando);
-	string getComandos();
 	bool Lerficheiro(string nome);
+	string getComandos();
+	string getCaracteristicas();
 };
 
 #endif
