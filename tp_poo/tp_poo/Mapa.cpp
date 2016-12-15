@@ -10,7 +10,14 @@ Mapa::Mapa(int x, int y)
 void Mapa::setX(int x){ dimx =x;}
 void Mapa::setY(int y) {dimy=y;}
 
-
+Colonia* Mapa::getPop(char p)
+{
+	for (auto it = populacoes.begin(); it <= populacoes.end(); ++it)
+		if (p == (*it)->getId()) {
+			return (*it);
+		}
+		else return nullptr;
+}
 
 void Mapa::UnitsInGrid(int colMax, int colMin, int linhaMax, int linhaMin) 
 {

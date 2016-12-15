@@ -16,7 +16,8 @@ public:
 	void BuildingsInGrid(int colMax, int colMin, int linhaMax, int linhaMin);
 	void setX(int x);
 	void setY(int y);
-
+	
+	Colonia* getPop(char p);
 	int getX(){return dimx;}
 	int getY(){return dimy;}
 

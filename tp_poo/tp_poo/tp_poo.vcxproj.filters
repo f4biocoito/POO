@@ -36,9 +36,6 @@
     <ClInclude Include="Edificios.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Interacao.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Load.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -69,9 +66,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Edificios.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Interacao.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">

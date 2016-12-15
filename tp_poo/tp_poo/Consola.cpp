@@ -34,11 +34,24 @@ Consola::Consola() {
 }
 */
 
+void Consola::printText(int x, int y, unsigned char c)
+{
+	gotoxy(x, y);
+	cout << c;
+}
+
+
 void Consola::gotoxy(int x, int y) {
 	COORD coord;
 	coord.X = x;
 	coord.Y = y;
 	SetConsoleCursorPosition(hconsola, coord);
+}
+
+void Consola::printText(int x, int y, const string & text)
+{
+		gotoxy(x, y);
+		cout << text;
 }
 
 void Consola::clrscr() {
@@ -70,6 +83,24 @@ void Consola::setTextColor(WORD color) {
 	SetConsoleTextAttribute(hconsola, cor);
 	return;
 }
+
+void Consola::quadricula(int x, int y)
+{
+	setTextColor(PRETO);
+	x = x * 3 + 1;
+	y = y * 3 + 1;
+	
+	gotoxy(x - 1, y - 1);
+	cout << char(178) << char(178) << char(178) << endl;
+
+	gotoxy(x - 1, y);
+	cout << char(178) << char(178) << char(178) << endl;
+
+	gotoxy(x - 1, y + 1);
+	cout << char(178) << char(178) << char(178) << endl;
+}
+
+
 
 void Consola::setBackgroundColor(WORD color) {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;

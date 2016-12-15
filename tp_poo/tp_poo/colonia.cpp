@@ -1,7 +1,7 @@
 
 #include "colonia.h"
 
-Colonia::Colonia(string name) {
+Colonia::Colonia(char name) {
 	id = name; 
 	castExiste = false; 
 
@@ -84,7 +84,6 @@ void Colonia::BuildingInPosition(int x, int y,int xMax, int yMax, vector <Edific
         if((*it)->getCordX()==x&&(*it)->getCordY()==y)
         {(*it)->desenha(x-xMax,y-yMax);}
     }
-     
 }
 
 
