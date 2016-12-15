@@ -14,14 +14,25 @@ static bool iniciar = false;
 class Interacao {
 	Mapa map;
 	bool flag_moeda;
+	Consola *c;
+	bool jogoIniciado = false;
 public:
+	Interacao();
+
+	bool getJogoIniciado() { return jogoIniciado; }
+	void setJogoIniciado(bool b);
+
+
+	void jogar();
 	int menu();
 	void corre();
 	void inicio();
-	bool VerificaComando(string comando);
+	bool VerificaComandoIniciais(string comando);
+
 	bool Lerficheiro(string nome);
 	string getComandos();
 	string getCaracteristicas();
 };
+
 
 #endif

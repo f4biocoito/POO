@@ -4,28 +4,16 @@ using namespace std;
 
 #include "Load.h"
 
-void scroll(char car);
 
-bool sair=false;
-int scrollX = 0, scrollY = 0;
-int maxX = 9, maxY = 9;
+
+
+
+
 
 int main() {
-
-	//char car;
-	Consola::setTextSize(12, 12);
-	Consola::setScreenSize(40, 55);
-
-	Consola::setTextColor(Consola::PRETO);
-	Consola::setBackgroundColor(Consola::BRANCO_CLARO);
-	Consola::clrscr();
-
 	Interacao jogo;
-
 	jogo.corre();
-
-
-
+	
 	//while (!sair) //ciclo principal
 	//{
 	//// while ciclo de leitura de comandos
@@ -63,4 +51,16 @@ void scroll(char car)
 	if (scrollY<0) scrollY++;
 	if (scrollX>maxX - 9) scrollX--;
 	if (scrollY>maxY - 9) scrollY--;
+}
+
+void desenhaTab(int x, int y)
+{
+	for (int i = scrollX; i < scrollX + LINHAMAX; i++)
+	{
+		for (int j = scrollY; i < scrollY + COLUNAMAX; j++)
+		{
+			if ((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 11))
+				c->quadricula(i - scrollX, j - scrollY);
+		}
+	}
 }

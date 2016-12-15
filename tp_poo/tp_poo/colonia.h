@@ -13,8 +13,8 @@ using namespace std;
  
 class Colonia
 {
-    string id;
-	string idAlvo;
+    char id;
+	char idAlvo;
     int numUnits;
     int numBuildings;
 	vector <Seres* > UnitList;
@@ -26,14 +26,14 @@ class Colonia
 public:
 	//Constructor
 
-	Colonia(string name = "");
+	Colonia(char name);
 	
 	int pesquisaUnidade(string id);
  // gets
     vector <Seres* > getUnitList (){ return UnitList; }
     vector <Edificio* > getBuildingList (){ return BuildingList; }
     int getNumUnits (){ return numUnits; }
-    string getId (){ return id; }
+    char getId (){ return id; }
 	int getMoedas () { return moedas; }
     
     int getNumBuildings(){return numBuildings;}
