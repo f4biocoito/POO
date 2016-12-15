@@ -18,6 +18,10 @@ Dez 2016 - Exemplo melhorado.
 #define __CONSOLA_H__
 
 #include <windows.h>
+#include <iostream>
+#include <sstream>
+
+using namespace std;
 
 class Consola {
 
@@ -60,7 +64,8 @@ public:
 	// Posiciona o cursor na posição x,y
 	// - Os proximos cout/cin serão feitos a partir daí
 	static void gotoxy(int x, int y);
-
+	void printText(int x, int y, const string &text);
+	void printText(int x, int y, unsigned char c);
 	// Limpa o ecrã
 	// - Usa a côr de fundo que estiver definida
 	static void clrscr();
@@ -68,6 +73,11 @@ public:
 	// Muda a côr das letras
 	// - Os cout/cin seguintes usarão essa côr
 	static void setTextColor(WORD color);
+
+	//desenha quadricula
+	void quadricula(int x, int y);
+
+
 
 	// Muda a côr de fundo
 	// - Os printf/cout seguintes usarão essa côr

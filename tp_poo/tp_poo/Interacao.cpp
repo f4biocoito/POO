@@ -1,6 +1,33 @@
 
 #include "Interacao.h"
 
+Interacao::Interacao() {
+	
+}
+
+void Interacao::setJogoIniciado(bool b)
+{
+	jogoIniciado = b;
+}
+
+void Interacao::jogar() {
+	 
+	{
+		c->printText(10, 10, "Jogo");
+		c->printText(10, 12, "Rafael e Fábio");
+		c->printText(10, 14, "Trabalho de POO");
+
+		c->clrscr();
+		system("PAUSE");
+
+		
+
+
+	}
+
+
+}
+
 int Interacao::menu() 
 {
 	int opcao = -1;
@@ -29,8 +56,9 @@ void Interacao::corre()
 			break;
 		case 1:
 		{
-			inicio();
+			
 			cout << "iniciar" << endl;
+			inicio();
 			break;
 		}
 		}
@@ -42,7 +70,7 @@ void Interacao::corre()
 void Interacao::inicio() 
 {
 	string cmd;
-	while (1) {
+	while (!getJogoIniciado() ) {
 		if (iniciar) { // inicio programa
 			break;
 		}
@@ -52,13 +80,13 @@ void Interacao::inicio()
 		if (cmd == "comandos") {
 			cout << getComandos();
 		}
-		else if (!VerificaComando(cmd)) {
+		else if (!VerificaComandoIniciais(cmd)) {
 			cout << "!!!Comando invalido!!!\n" << endl;
 		}
 	}
 }
 
-bool Interacao::VerificaComando(string comando) 
+bool Interacao::VerificaComandoIniciais(string comando) 
 {
 	string cmd[5];
 	istringstream iss(comando);
@@ -67,7 +95,8 @@ bool Interacao::VerificaComando(string comando)
 		cmd[i] = *it;
 
 
-	if (cmd[0] == "dim") {
+	if (cmd[0] == "dim") 
+	{
 		istringstream iss1(cmd[2]);
 		istringstream iss2(cmd[3]);
 		int x1, y1;
@@ -77,6 +106,7 @@ bool Interacao::VerificaComando(string comando)
 			if (x1 >= 20 && y1 >= 40) {
 				map.setX(x1);
 				map.setY(y1);
+				
 			}
 			else {
 				cout << "Valor Invalido" << endl;
@@ -103,9 +133,25 @@ bool Interacao::VerificaComando(string comando)
 
 	else if (cmd[0] == "castelo") {
 		istringstream iss(cmd[1]);
-		char x;
-		iss >> x;
-		if (iss) {
+		istringstream iss1(cmd[2]);
+		istringstream iss2(cmd[3]);
+		char c;
+		char posx, posy;
+		iss >> c;
+		iss1 >> posx;
+		iss2 >> posy;
+
+		if (iss) 
+		{
+			/*Colonia* aux = map.getPop(c);
+			if (aux == nullptr) {
+				cout << "Colonia nao encontrada."; 
+				return false;
+			}*/
+			Colonia* aux = new Colonia(c);
+
+
+
 			/*if (map->pesquisaColonia(x) != -1) {
 				istringstream iss1(cmd[2]);
 				istringstream iss2(cmd[3]);
@@ -116,6 +162,12 @@ bool Interacao::VerificaComando(string comando)
 					map->mapaAlteraColonia_castelo(x, x1, y1);
 				}
 			}*/
+			int x, y;
+			x = atoi(&posx);
+			y = atoi(&posy);
+			
+			aux->addCastle(x, y, "cast1");
+
 		}
 		return true;
 	}
@@ -148,6 +200,7 @@ bool Interacao::VerificaComando(string comando)
 
 	else if (cmd[0] == "inicio") {
 		iniciar = true;
+		
 		//if (map->Ver_size_colonias()<2) {
 			//for (unsigned int i = 0; i < 2; i++) {
 	//			map->AdicionaColonia(new Colonia);
@@ -157,21 +210,21 @@ bool Interacao::VerificaComando(string comando)
 		//if (!flag_moeda) {
 	//		map->mapaAlteraColonia_economia(25); // defeito
 		//}
+		
 
 		if (map.getX() < 20 || map.getY() < 40) {
 			map.setX(20);
 			map.setY(40);
 		}
+		setJogoIniciado(true);
+		jogar();
 
-		Colonia(a);
-		cout << "criar colonia" << endl;
-
-
-		return true;
+		return false;
 	}
-
 	return false;
 }
+
+
 
 bool Interacao::Lerficheiro(string nome)
 {
@@ -185,7 +238,7 @@ bool Interacao::Lerficheiro(string nome)
 	while (!dados.eof())
 	{
 		getline(dados, linha);
-		VerificaComando(linha);
+		VerificaComandoIniciais(linha);
 	}
 	dados.close();
 	return true;
@@ -199,7 +252,7 @@ string Interacao::getComandos()
 		"oponentes numero\n" << "castelo colonia lin col\n" <<
 		"mkperfil letra\n" << "addperfil letra caracteristica\n" <<
 		"subperfil letra caracteristica\n" << "rmperfil letra\n" <<
-		"load ficheiro\n" << "inico\n" << endl;
+		"load ficheiro\n" << "inicio\n" << endl;
 
 	return oss.str();
 }
