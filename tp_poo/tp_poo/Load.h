@@ -24,8 +24,8 @@
 
 using namespace std;
 
-static bool jogoiniciado = false;
-
+bool jogoIniciado = false;
+bool jogoTerminado = false;
 
 void scroll(char car);
 
