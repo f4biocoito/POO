@@ -1,26 +1,23 @@
 #include <string>
 #include <iostream>
+
+
+
 using namespace std;
 
 #include "Load.h"
 
-bool leComandosMenu(string comando, Mapa map);
-bool leComandosJogo(string comando, Mapa map);
 
 
-int menu();
-string getComandos();
-string getCaracteristicas();
+int scrollX = 0, scrollY = 0;
 
-bool file = false;
 
 
 int main() {
 	Mapa map;
 	string a;
-
-	Consola::setTextSize(12, 12);
-	Consola::setScreenSize(40, 55);
+	Consola::setTextSize(15, 15);
+	Consola::setScreenSize(31, 60);
 
 	Consola::setTextColor(Consola::PRETO);
 	Consola::setBackgroundColor(Consola::BRANCO);
@@ -40,7 +37,9 @@ int main() {
 		}
 		else if(jogoIniciado)
 		{
+
 			Consola::clrscr();
+			desenhaTab();
 			leComandosJogo(a, map);
 			system("PAUSE");
 		}
@@ -88,13 +87,13 @@ void scroll(char car)
 	if (scrollY>maxY - 9) scrollY--;
 }
 
-void desenhaTab(int x, int y)
+void desenhaTab()
 {
 	for (int i = scrollX; i < scrollX + LINHAMAX; i++)
 	{
-		for (int j = scrollY; i < scrollY + COLUNAMAX; j++)
+		for (int j = scrollY; j < scrollY + COLUNAMAX; j++)
 		{
-			if ((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 11))
+			if ((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1))
 				Consola::quadricula(i - scrollX, j - scrollY);
 		}
 	}
@@ -109,7 +108,7 @@ bool leComandosMenu(string comando,  Mapa map)
 	string frase, ident_comando, primeiro_parametro, segundo_parametro, terceiro_parametro, quarto_parametro;
 	istringstream iss;
 	ostringstream oss;
-	Consola::gotoxy(0, 5);
+	Consola::gotoxy(0, 1);
 	cout << "Comando: ";
 
 	fflush(stdin);
@@ -169,9 +168,9 @@ bool leComandosMenu(string comando,  Mapa map)
 		
 		Consola::setTextColor(Consola::AZUL);
 		Consola::gotoxy(5, 0);
-		cout << "Estado do Jogo:";
-		Consola::gotoxy(28, 3);
+				
 		Consola::setTextColor(Consola::PRETO);
+		cout << getComandos();
 	}
 
 
@@ -260,7 +259,7 @@ bool leComandosJogo(string comando, Mapa map)
 	string frase, ident_comando, primeiro_parametro, segundo_parametro, terceiro_parametro, quarto_parametro;
 	istringstream iss;
 	ostringstream oss;
-	Consola::gotoxy(0, 5);
+	Consola::gotoxy(0, 30);
 	cout << "Comando de jogo: ";
 
 	fflush(stdin);
@@ -272,7 +271,11 @@ bool leComandosJogo(string comando, Mapa map)
 	while (!iss.eof())
 	{
 		iss >> ident_comando;
-
+		if (ident_comando == "sair") {
+			jogoIniciado=false;
+			jogoTerminado=true;
+			return true;
+		}
 		
 	}
 	return false;

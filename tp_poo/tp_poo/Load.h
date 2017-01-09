@@ -22,16 +22,28 @@
 #include "Seres.h"
 #include "Simulacao.h"
 
+#define LINHAMAX 20
+#define COLUNAMAX 10
+
 using namespace std;
+
+
 
 bool jogoIniciado = false;
 bool jogoTerminado = false;
 
 void scroll(char car);
+bool leComandosMenu(string comando, Mapa map);
+bool leComandosJogo(string comando, Mapa map);
+string getComandos();
+string getCaracteristicas();
 
 bool sair = false;
-int scrollX = 0, scrollY = 0;
-int maxX = 9, maxY = 9;
-void desenhaTab(int x, int y);
+int menu();
+bool file = false;
+int maxX = 20, maxY = 20;
+
+
+void desenhaTab();
 
 #endif
