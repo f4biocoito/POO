@@ -10,7 +10,7 @@ class Mapa
 	int dimx;
 	int dimy;
 public:
-	Mapa(int x=0, int y=0);
+	Mapa(int x=50, int y=50);
 	vector <Colonia*> populacoes;
 	void UnitsInGrid(int colMax, int colMin, int linhaMax, int linhaMin);
 	void BuildingsInGrid(int colMax, int colMin, int linhaMax, int linhaMin);

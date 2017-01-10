@@ -14,8 +14,7 @@ int scrollX = 0, scrollY = 0;
 
 
 int main() {
-	Mapa map;
-	string a;
+	
 	Consola::setTextSize(15, 15);
 	Consola::setScreenSize(31, 60);
 
@@ -23,6 +22,8 @@ int main() {
 	Consola::setBackgroundColor(Consola::BRANCO);
 	Consola::clrscr();
 
+	Colonia* jogador = new Colonia('a'); //cria colonia do jogador - obrigatoria
+	map.populacoes.push_back(jogador); 
 
 	menu();
 	
@@ -32,15 +33,18 @@ int main() {
 		if(!jogoIniciado)
 		{
 			Consola::clrscr();
-			leComandosMenu(a, map);
+			leComandosMenu();
 			system("PAUSE");
 		}
 		else if(jogoIniciado)
 		{
 
 			Consola::clrscr();
+		
+			map.BuildingsInGrid(5, 10,5, 10);
+			map.UnitsInGrid(scrollX+8,scrollX,scrollY+8,scrollY);
 			desenhaTab();
-			leComandosJogo(a, map);
+			leComandosJogo();
 			system("PAUSE");
 		}
 		else if(jogoTerminado){}
@@ -103,7 +107,7 @@ void desenhaTab()
 void jogar(){}
 
 
-bool leComandosMenu(string comando,  Mapa map)
+bool leComandosMenu()
 {
 	string frase, ident_comando, primeiro_parametro, segundo_parametro, terceiro_parametro, quarto_parametro;
 	istringstream iss;
@@ -183,7 +187,7 @@ bool leComandosMenu(string comando,  Mapa map)
 
 		
 		
-			Colonia* aux = new Colonia(c[0]); //ja temos um mapa que tem colonias temos que por esta la dentro
+			Colonia* aux = map.getPop(*(c)); //ja temos um mapa que tem colonias temos que por esta la dentro
 
 
 			int x, y;
@@ -229,7 +233,7 @@ bool leComandosMenu(string comando,  Mapa map)
 		while (!dados.eof())
 		{
 			getline(dados, linha);
-			leComandosMenu(linha, map);
+			leComandosMenu();
 		}
 		dados.close();
 		return true;
@@ -254,7 +258,7 @@ bool leComandosMenu(string comando,  Mapa map)
 } 
 
 
-bool leComandosJogo(string comando, Mapa map)
+bool leComandosJogo()
 {
 	string frase, ident_comando, primeiro_parametro, segundo_parametro, terceiro_parametro, quarto_parametro;
 	istringstream iss;

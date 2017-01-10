@@ -1,8 +1,7 @@
 #ifndef LOAD_H
 #define LOAD_H
 
-#define LINHAMAX 9
-#define COLUNAMAX 9
+
 
 #include <cmath>
 #include <ctime>
@@ -33,10 +32,11 @@ bool jogoIniciado = false;
 bool jogoTerminado = false;
 
 void scroll(char car);
-bool leComandosMenu(string comando, Mapa map);
-bool leComandosJogo(string comando, Mapa map);
+bool leComandosMenu();
+bool leComandosJogo();
 string getComandos();
 string getCaracteristicas();
+Mapa map; 
 
 bool sair = false;
 int menu();

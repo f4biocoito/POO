@@ -8,7 +8,7 @@ Colonia::Colonia(char name) {
 	numQuint = 0;
 	numUnits = 0; 
 	numBuildings = 0; 
-	moedas = 100;
+	
 }
 
 int Colonia::pesquisaUnidade(string id)
