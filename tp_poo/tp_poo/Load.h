@@ -41,7 +41,7 @@ Mapa map;
 bool sair = false;
 int menu();
 bool file = false;
-int maxX = 20, maxY = 20;
+int maxX = 100, maxY = 100;
 
 
 void desenhaTab();

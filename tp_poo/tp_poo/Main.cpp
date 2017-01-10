@@ -40,10 +40,10 @@ int main() {
 		{
 
 			Consola::clrscr();
-		
-			map.BuildingsInGrid(5, 10,5, 10);
-			map.UnitsInGrid(scrollX+8,scrollX,scrollY+8,scrollY);
 			desenhaTab();
+			map.BuildingsInGrid(scrollX + 8, scrollX, scrollY + 8, scrollY);
+			map.UnitsInGrid(scrollX+8,scrollX,scrollY+8,scrollY);
+			
 			leComandosJogo();
 			system("PAUSE");
 		}
