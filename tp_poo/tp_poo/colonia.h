@@ -63,7 +63,7 @@ public:
 
  //verifica posicoes
 	void UnitInPosition(int x,int y,int xMax, int yMax, vector <Seres* > UList);
-	void BuildingInPosition(int x, int y, int xMax, int yMax, vector <Edificio *> BList);
+	void BuildingInPosition(int x, int y, vector <Edificio *> BList);
 
 //movimento
     void moveUnits();

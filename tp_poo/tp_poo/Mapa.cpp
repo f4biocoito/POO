@@ -40,19 +40,21 @@ void Mapa::UnitsInGrid(int colMax, int colMin, int linhaMax, int linhaMin)
 void Mapa::BuildingsInGrid(int colMax, int colMin, int linhaMax, int linhaMin)
 {
 
-	int l, c;
-	for (l = linhaMin; l <= linhaMax; l++)
+	int line, col;
+	line = linhaMin;
+
+	while (line<linhaMax)
 	{
-		for (c = colMin; c <= colMin; c++)
+		for ( col = colMin; col <= colMax; col++)
 		{
 			for (auto pop = populacoes.begin(); pop != populacoes.end(); ++pop)
 			{
-				//(*pop)->getBuildingList.BuildingInPosition(colMin, linhaMin, colMax, linhaMax);
-				//(*pop)->getUnitList.UnitInPosition(colMin, linhaMin, colMax, linhaMax);
-				(*pop)->BuildingInPosition(colMin, linhaMin, colMax, linhaMax, (*pop)->getBuildingList());
+				(*pop)->BuildingInPosition(colMin, linhaMin, (*pop)->getBuildingList());
 			}
 		}
+	line++;
 	}
+	
 }
 
 

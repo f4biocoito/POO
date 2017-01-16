@@ -78,11 +78,13 @@ void Colonia::UnitInPosition(int x, int y, int xMax, int yMax, vector <Seres *> 
         {(*it)->desenha(x-xMax,y-yMax);}
     }
 }
-void Colonia::BuildingInPosition(int x, int y,int xMax, int yMax, vector <Edificio *> BList)
+void Colonia::BuildingInPosition(int x, int y, vector <Edificio *> BList)
 {
-    for(vector<Edificio*>::iterator it = BList.begin(); it != BList.end(); ++it) {
-        if((*it)->getCordX()==x&&(*it)->getCordY()==y)
-        {(*it)->desenha(x-xMax,y-yMax);}
+    for(auto it = BList.begin(); it != BList.end(); ++it) 
+	{
+		int edx=(*it)->getCordX();
+		int edy=(*it)->getCordY();
+        (*it)->desenha(edx,edy);
     }
 }
 
