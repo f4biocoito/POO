@@ -1,20 +1,15 @@
 #include <string>
 #include <iostream>
 
-
-
-using namespace std;
-
 #include "Load.h"
 
-
+using namespace std;
 
 int scrollX = 0, scrollY = 0;
 
 
-
 int main() {
-	
+
 	Consola::setTextSize(15, 15);
 	Consola::setScreenSize(31, 60);
 
@@ -23,33 +18,41 @@ int main() {
 	Consola::clrscr();
 
 	Colonia* jogador = new Colonia('a'); //cria colonia do jogador - obrigatoria
-	map.populacoes.push_back(jogador); 
+	map.populacoes.push_back(jogador);
 
-	menu();
-	
-	while (!sair) 
-	{	
-		
-		if(!jogoIniciado)
-		{
-			Consola::clrscr();
-			leComandosMenu();
-			system("PAUSE");
+	int j;
+	do {
+		j = menu();
+		if (j == 1) {
+
+			while (1) {
+
+				if (!jogoIniciado)
+				{
+					Consola::clrscr();
+					leComandosMenu();
+					system("PAUSE > NULL");
+				}
+				else if (jogoIniciado)
+				{
+
+					Consola::clrscr();
+					desenhaTab();
+					map.BuildingsInGrid(scrollX + 8, scrollX, scrollY + 8, scrollY);
+					map.UnitsInGrid(scrollX + 8, scrollX, scrollY + 8, scrollY);
+					leComandosJogo();
+					system("PAUSE > NULL");
+				}
+				else if (jogoTerminado) {
+					break;
+				}
+
+			}
+
 		}
-		else if(jogoIniciado)
-		{
-
-			Consola::clrscr();
-			desenhaTab();
-			map.BuildingsInGrid(scrollX + 8, scrollX, scrollY + 8, scrollY);
-			map.UnitsInGrid(scrollX+8,scrollX,scrollY+8,scrollY);
-			
-			leComandosJogo();
-			system("PAUSE");
-		}
-		else if(jogoTerminado){}
-
-	}
+	} while (j != 0);
+	return 0;
+}
 	
 
 	//while (!sair) //ciclo principal
@@ -70,14 +73,11 @@ int main() {
 	//		continue;
 	//	}
 	//}
-
 	////SCROLL
 	//scroll(car);
-
-
 	//} //FIM DO CICLO WHILE DE SAIR 
 
-}
+
 
 void scroll(char car) 
 {
@@ -103,10 +103,6 @@ void desenhaTab()
 	}
 }
 
-
-void jogar(){}
-
-
 bool leComandosMenu()
 {
 	string frase, ident_comando, primeiro_parametro, segundo_parametro, terceiro_parametro, quarto_parametro;
@@ -124,71 +120,83 @@ bool leComandosMenu()
 	while (!iss.eof())
 	{
 		iss >> ident_comando;
-	
-	
 
-	if (ident_comando == "dim")
-	{
-		iss >> primeiro_parametro;
-		if (primeiro_parametro != "")
-			maxX = stoi(primeiro_parametro);
-
-		iss >> segundo_parametro;
-		if (segundo_parametro != "")
-			maxY = stoi(segundo_parametro);
-
-
-
-		if ((maxX<30 || maxX>500) || (maxY<30 || maxY>500))
+		if (ident_comando == "dim")
 		{
-			Consola::gotoxy(0, 31);
-			cout << "Insira valores validos. (30 a 500)\n";
-			break;
-		}
+			iss >> primeiro_parametro;
+			if (primeiro_parametro != "")
+				maxX = stoi(primeiro_parametro);
+
+			iss >> segundo_parametro;
+			if (segundo_parametro != "")
+				maxY = stoi(segundo_parametro);
+
+			if ((maxX<30 || maxX>500) || (maxY<30 || maxY>500))
+			{
+				Consola::gotoxy(0, 31);
+				cout << "Insira valores validos. (30 a 500)\n";
+				break;
+			}
 		
-		map.setX(maxX);
-		map.setY(maxY);
+			map.setX(maxX);
+			map.setY(maxY);
 				
-		return true;
-	}
-
-	else if (ident_comando == "moedas") {
-		iss >> primeiro_parametro;
-		int coins=stoi(primeiro_parametro);
-		for (auto pop = map.populacoes.begin(); pop != map.populacoes.end(); ++pop)
-		{
-			(*pop)->setMoedas(coins);
+			return true;
 		}
-		cout << "moedas";
-		return true;
-	}
 
-	else if (ident_comando == "oponentes") {
+		else if (ident_comando == "moedas") {
+			iss >> primeiro_parametro;
+			int coins=stoi(primeiro_parametro);
+			for (auto pop = map.populacoes.begin(); pop != map.populacoes.end(); ++pop)
+			{
+				(*pop)->setMoedas(coins);
+			}
+			cout << "moedas";
+			return true;
+		}
 
-		return true;
-	}
+		else if (ident_comando == "oponentes") {
+			iss >> primeiro_parametro;
+			int num = stoi(primeiro_parametro);
+			if (num > 0 && num < 10) {
+				int bb = 98;//ascii para b
+				char cc;
+				int x, y;
 
-	else if (ident_comando == "comandos") {
+				for (int i = 0; i < num; i++) {
+					string nom = "cast";
+					cc = static_cast<char>(bb++);
+					x = rand() % 40; //é preciso verificar se ja existe algum nessa posicao
+					y = rand() % 40;
+					ostringstream oos;
+					oos.clear();
+					oos << (i + 2);
+					nom += oos.str();
+					//cout << cc << " " << nom << endl;
+					Colonia* jogador = new Colonia(cc); //cria colonia dos oponentes
+					jogador->addCastle(x, y, nom); //adicionar um castelo para o jogador
+					map.populacoes.push_back(jogador);
+				}
+			}		
+			return true;
+		}
+
+		else if (ident_comando == "comandos") {
 		
-		Consola::setTextColor(Consola::AZUL);
-		Consola::gotoxy(5, 0);
-				
-		Consola::setTextColor(Consola::PRETO);
-		cout << getComandos();
-	}
+			//Consola::setTextColor(Consola::AZUL);
+			Consola::gotoxy(0, 1);
+			//Consola::setTextColor(Consola::PRETO);
+			cout << getComandos();
+		}
 
+		else if (ident_comando == "castelo") {
+			iss >> primeiro_parametro; //faccao
+			iss >> segundo_parametro; //x
+			iss >> terceiro_parametro; //y 
 
-	else if (ident_comando == "castelo") {
-		iss >> primeiro_parametro; //faccao
-		iss >> segundo_parametro; //x
-		iss >> terceiro_parametro; //y 
+			const char *c=primeiro_parametro.c_str();
 
-		const char *c=primeiro_parametro.c_str();
-
-		
-		
 			Colonia* aux = map.getPop(*(c)); //ja temos um mapa que tem colonias temos que por esta la dentro
-
 
 			int x, y;
 			x = stoi(segundo_parametro);
@@ -196,67 +204,66 @@ bool leComandosMenu()
 
 			aux->addCastle(x, y, "cast1");
 
+			map.populacoes.push_back(aux); //assim fica no vetor das populacoes
 		
-		return true;
-	}
-
-	else if (ident_comando == "mkperfil") {
-
-		return true;
-	}
-
-	else if (ident_comando == "addperfil") {
-
-		return true;
-	}
-
-	else if (ident_comando == "subperfil") {
-
-		return true;
-	}
-
-	else if (ident_comando == "rmperfil") {
-
-		return true;
-	}
-
-	else if (ident_comando == "load") {
-		file = true;
-		iss>>primeiro_parametro;
-		ifstream dados(primeiro_parametro);
-		string linha;
-
-		if (!dados.is_open()) {
-			return false;
+			return true;
 		}
 
-		while (!dados.eof())
-		{
-			getline(dados, linha);
-			leComandosMenu();
+		else if (ident_comando == "mkperfil") {
+
+			return true;
 		}
-		dados.close();
-		return true;
-	}
 
-	else if (ident_comando == "inicio") {
-		jogoIniciado = true;
-		cout << "Vamos dar inicio ao jogo.";
-		Consola::printText(10, 10, "Guerra dos Clas");
-		Consola::printText(10, 12, "Rafael Falcao e Fabio Coito");
-		Consola::printText(10, 14, "Trabalho de POO");
+		else if (ident_comando == "addperfil") {
 
-		
-		system("PAUSE");
-		Consola::clrscr();
+			return true;
+		}
+
+		else if (ident_comando == "subperfil") {
+
+			return true;
+		}
+
+		else if (ident_comando == "rmperfil") {
+
+			return true;
+		}
+
+		else if (ident_comando == "load") {
+			file = true;
+			iss>>primeiro_parametro;
+			cout << "primeiro";
+			ifstream dados(primeiro_parametro);
+			string linha;
+
+			if (!dados.is_open()) {
+				return false;
+			}
+
+			while (!dados.eof())
+			{
+				getline(dados, linha);
+				leComandosMenu();
+			}
+			dados.close();
+			return true;
+		}
+
+		else if (ident_comando == "inicio") {
+			jogoIniciado = true;
+			cout << "Vamos dar inicio ao jogo.";
+			Consola::printText(10, 10, "Guerra dos Clas");
+			Consola::printText(10, 12, "Rafael Falcao e Fabio Coito");
+			Consola::printText(10, 14, "Trabalho de POO");
+
+			system("PAUSE > NULL");
+			Consola::clrscr();
 	
-
-		return true;
-	}
+			return true;
+		}
 	}
 	return false;
 } 
-
 
 bool leComandosJogo()
 {
@@ -290,9 +297,8 @@ int menu()
 	int opcao = -1;
 
 	cout << "\n0 - Sair"
-		<< "\n1 - Nova configuracao"
-		
-		;
+		 << "\n1 - Nova configuracao"
+	;
 	do {
 		cout << "\n opcao > ";
 		string s;
