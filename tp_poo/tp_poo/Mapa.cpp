@@ -10,6 +10,9 @@ Mapa::Mapa(int x, int y)
 void Mapa::setX(int x){ dimx =x;}
 void Mapa::setY(int y) {dimy=y;}
 
+void Mapa::setFocoX(int x) { focoX = x; }
+void Mapa::setFocoY(int y) { focoY = y; }
+
 Colonia* Mapa::getPop(char p)
 {
 	for (auto it = populacoes.begin(); it <= populacoes.end(); ++it)

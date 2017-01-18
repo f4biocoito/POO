@@ -45,6 +45,9 @@
     <ClInclude Include="Seres.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Perfil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Seres.cpp">

@@ -42,6 +42,7 @@ bool sair = false;
 int menu();
 bool file = false;
 int maxX = 100, maxY = 100;
+int xini = 10, yini = 10;
 
 
 void desenhaTab();

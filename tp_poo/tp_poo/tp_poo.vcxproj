@@ -150,6 +150,7 @@
     <ClInclude Include="Edificios.h" />
     <ClInclude Include="Load.h" />
     <ClInclude Include="Mapa.h" />
+    <ClInclude Include="Perfil.h" />
     <ClInclude Include="Seres.h" />
     <ClInclude Include="Simulacao.h" />
   </ItemGroup>

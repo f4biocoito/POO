@@ -1,8 +1,12 @@
 
 #include "Caracteristicas.h"
 
-Caracteristicas::Caracteristicas(string n) //acho que é preciso comparar cada nome para inicializar com os valores corretos
+Caracteristicas::Caracteristicas(int i, int c, int f) //acho que é preciso comparar cada nome para inicializar com os valores corretos
 {
+	id = i;
+	custo = c;
+	forca = f;
+	/*
 	const char * c = n.c_str();
 	if (strcmp(c, "Bandeira"))
 	{
@@ -23,6 +27,7 @@ Caracteristicas::Caracteristicas(string n) //acho que é preciso comparar cada no
 
 	else
 		cout << "caracteristica nao existe !!!" << endl;
+		*/
 }
 
 /*

@@ -9,6 +9,8 @@ class Mapa
 {
 	int dimx;
 	int dimy;
+	int focoX; //nao esta a ser usado
+	int focoY; //nao esta a ser usado
 public:
 	Mapa(int x=50, int y=50);
 	vector <Colonia*> populacoes;
@@ -16,6 +18,8 @@ public:
 	void BuildingsInGrid(int colMax, int colMin, int linhaMax, int linhaMin);
 	void setX(int x);
 	void setY(int y);
+	void setFocoX(int x);
+	void setFocoY(int y);
 	
 	Colonia* getPop(char p);
 	int getX(){return dimx;}

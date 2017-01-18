@@ -39,11 +39,17 @@ void Colonia::addCastle(int x, int y, string name)//propria funcao verifica quan
 
 void Colonia::addFarm(int x, int y, string name) 
 {
-
+	Edificio* e = new Quinta(x, y, name);
+	BuildingList.push_back(e);
+	numQuint++;
+	incNumBuildings();
 }
 void Colonia::addTower(int x, int y, string name) 
 {
-
+	Edificio* e = new Torre(x, y, name);
+	BuildingList.push_back(e);
+	numTorres++;
+	incNumBuildings();
 }
 void Colonia::removeCastle() 
 {

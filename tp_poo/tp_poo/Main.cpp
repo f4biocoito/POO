@@ -282,6 +282,116 @@ bool leComandosJogo()
 	while (!iss.eof())
 	{
 		iss >> ident_comando;
+
+
+
+		if (ident_comando == "foco")
+		{
+			iss >> primeiro_parametro;
+			if (primeiro_parametro != "")
+				xini = stoi(primeiro_parametro);
+			else
+				return false;
+			iss >> segundo_parametro;
+			if (segundo_parametro != "")
+				yini = stoi(segundo_parametro);
+			else
+				return false;
+			if ((xini<0 || xini>maxX) || (yini<0 || yini>maxY))
+			{
+				Consola::gotoxy(0, 31);
+				cout << "Insira valores validos.\n";
+				break;
+			}
+			map.setFocoX(xini);
+			map.setFocoY(yini);
+			return true;
+		}
+
+		//setmoedas colonia num
+
+		if (ident_comando == "build") {
+			iss >> primeiro_parametro; //nome edificio
+			iss >> segundo_parametro; //linha
+			iss >> terceiro_parametro; //coluna 
+			//deve ser para criar o castelo na colonia 'a'
+			const char *c = "a";
+			Colonia* aux = map.getPop(*(c));
+			int x, y;
+			x = stoi(segundo_parametro);
+			y = stoi(terceiro_parametro);
+			if (primeiro_parametro == "torre") {
+				aux->addTower(x, y, primeiro_parametro);
+			}
+			if (primeiro_parametro == "quinta") {
+				aux->addFarm(x, y, primeiro_parametro);
+			}
+			map.populacoes.push_back(aux);
+			return true;
+		}
+
+		if (ident_comando == "list") {
+			
+			return true;
+		}
+
+		if (ident_comando == "listp") {
+
+			return true;
+		}
+
+		if (ident_comando == "listallp") {
+
+			return true;
+		}
+
+		if (ident_comando == "mkbuild") {
+
+			return true;
+		}
+
+		if (ident_comando == "repair") {
+
+			return true;
+		}
+
+		if (ident_comando == "upgrade") {
+
+			return true;
+		}
+
+		if (ident_comando == "sell") {
+
+			return true;
+		}
+
+		if (ident_comando == "ser") {
+
+			return true;
+		}
+
+		if (ident_comando == "next") {
+
+			return true;
+		}
+
+		//nextn num
+
+		if (ident_comando == "ataca") {
+
+			return true;
+		}
+
+		if (ident_comando == "recolhe") {
+
+			return true;
+		}
+
+		//save nome
+		//restore nome
+		//erase nome
+		//load ficheiro
+
 		if (ident_comando == "sair") {
 			jogoIniciado=false;
 			jogoTerminado=true;

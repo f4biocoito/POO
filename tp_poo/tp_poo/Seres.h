@@ -10,8 +10,7 @@ using namespace std;
 
 class Seres
 {
-	//caracteristicas
-//	vector <Caracteristicas*> caracteristicas;
+
 
 protected:
 	string id;

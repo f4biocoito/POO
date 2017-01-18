@@ -53,7 +53,7 @@ public:
 
   //adicionar e remover edificios
     void addCastle(int x, int y, string name);
-    void addFarm(int x, int y, string name); //adicionar n units possivel
+    void addFarm(int x, int y, string name); //adicionar n units possivel ------------------------------------------------------
     void addTower(int x, int y, string name);
     void removeCastle();
  
