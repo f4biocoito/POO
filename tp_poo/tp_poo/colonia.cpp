@@ -8,12 +8,10 @@ Colonia::Colonia(char name) {
 	numQuint = 0;
 	numUnits = 0; 
 	numBuildings = 0; 
-	
 }
 
 int Colonia::pesquisaUnidade(string id)
 {
-         
     for(auto it = UnitList.begin(); it != UnitList.end(); ++it) 
     {
             if((*it)->getId()==id)
@@ -24,10 +22,10 @@ int Colonia::pesquisaUnidade(string id)
     return 0;
 }
 
-//adicionar e remover edificios
-void Colonia::addCastle(int x, int y, string name)//propria funcao verifica quantos castelos existem
+//-------------------------------------adicionar e remover edificios------------------------------------------------------------
+void Colonia::addCastle(int x, int y, string name)
 {
-	bool cast = getcastExiste();
+	bool cast = getcastExiste();//verifica se existem castelos
 	if (!cast)
 	{
 		Edificio* e = new Castelo(x, y, name);
@@ -51,7 +49,7 @@ void Colonia::addTower(int x, int y, string name)
 	numTorres++;
 	incNumBuildings();
 }
-void Colonia::removeCastle() 
+void Colonia::removeCastle() //vai ter que terminar o jogo
 {
 
 }
@@ -77,15 +75,18 @@ void Colonia::addSer(int x, int y, string name)
 //}
 
 //verifica posicoes e desenha
-void Colonia::UnitInPosition(int x, int y, int xMax, int yMax, vector <Seres *> UList)
-{
-    for(vector<Seres*>::iterator it = UList.begin(); it != UList.end(); ++it) {
+void Colonia::UnitInPosition(int x, int y, int xMax, int yMax, vector <Seres *> UList) //acho que esta desenha
+{	
+																						
+    for(vector<Seres*>::iterator it = UList.begin(); it != UList.end(); ++it) {			
         if((*it)->getCordX()==x&&(*it)->getCordY()==y)
-        {(*it)->desenha(x-xMax,y-yMax);}
+        {
+			(*it)->desenha(x-xMax,y-yMax);
+		}
     }
 }
-void Colonia::BuildingInPosition(int x, int y, vector <Edificio *> BList)
-{
+void Colonia::BuildingInPosition(int x, int y, vector <Edificio *> BList) //esta nao esta a desenhar nada
+{																			//secalhar e melhor fazer como a dos seres
     for(auto it = BList.begin(); it != BList.end(); ++it) 
 	{
 		int edx=(*it)->getCordX();

@@ -6,6 +6,8 @@
 #include <vector>
 #include <iterator>
 #include "Consola.h"
+#include "Perfil.h"
+
 using namespace std;
 
 class Seres
@@ -15,7 +17,7 @@ class Seres
 protected:
 	string id;
 	int hp;
-	int forca;
+	int forca; // a caracteristica altera estes valores
 	int dano;
 	int defesa;
 	int velocidade;
@@ -29,6 +31,7 @@ protected:
 
 	string status; //estado da unidade - atacar, fugir, defender
 
+	//Perfil pf;
 
 public:
 	Seres(string id, int hp = 10,int forca = 10, int velocidade = 1, int dano = 1, int defesa = 1, int cordX=0, int cordY=0)

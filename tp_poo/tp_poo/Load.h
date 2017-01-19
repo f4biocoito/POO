@@ -1,8 +1,6 @@
 #ifndef LOAD_H
 #define LOAD_H
 
-
-
 #include <cmath>
 #include <ctime>
 #include <iostream>
@@ -13,20 +11,16 @@
 
 #include "Caracteristicas.h"
 #include "colonia.h"
-#include "Configuracao.h"
 #include "Consola.h"
-#include "Defines.h"
 #include "Edificios.h"
 #include "Mapa.h"
+#include "Perfil.h"
 #include "Seres.h"
-#include "Simulacao.h"
 
 #define LINHAMAX 20
 #define COLUNAMAX 10
 
 using namespace std;
-
-
 
 bool jogoIniciado = false;
 bool jogoTerminado = false;

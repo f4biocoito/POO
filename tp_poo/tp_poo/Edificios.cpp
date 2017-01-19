@@ -1,6 +1,11 @@
 
 #include "Edificios.h"
 
+void Edificio::perdeHP(int dano) 
+{ 
+	hp = hp - dano; 
+}
+
 void Edificio::conserta(int recupera)
 {
 	hp = hp + recupera;
@@ -71,4 +76,4 @@ void Torre::desenha(int x, int y)
 	Consola::gotoxy(x - 1, y + 1);
 	cout << (char)177 << (char)178 << (char)177 << endl;
 	Consola::setTextColor(Consola::PRETO);
-}
+} //esta igual a da quinta

@@ -24,8 +24,9 @@ public:
 	int getCordY () const { return cordY; }
 
 	//funcoes set
-	void perdeHP(int dano) { hp = hp - dano; }
+	void perdeHP(int dano);
 	void conserta(int recupera);
+
 	virtual void desenha(int x, int y) {}
 };
 
@@ -59,4 +60,3 @@ public:
 
 
 #endif
-

@@ -16,27 +16,28 @@ void Mapa::setFocoY(int y) { focoY = y; }
 Colonia* Mapa::getPop(char p)
 {
 	for (auto it = populacoes.begin(); it <= populacoes.end(); ++it)
-		if (p == (*it)->getId()) {
+		if (p == (*it)->getId()) {	
 			return (*it);
 		}
-		else return nullptr;
+	return nullptr;
 }
 
 void Mapa::UnitsInGrid(int colMax, int colMin, int linhaMax, int linhaMin) 
 {
 
 	int l, c;
-	for (l = linhaMin; l <= linhaMax; l++)
+	l = linhaMin;
+
+	while (l<linhaMax)
 	{
 		for (c = colMin; c <= colMin; c++)
 		{
 			for (auto pop = populacoes.begin(); pop != populacoes.end(); ++pop)
 			{
-				//(*pop)->getBuildingList.BuildingInPosition(colMin, linhaMin, colMax, linhaMax);
-				//(*pop)->getUnitList.UnitInPosition(colMin, linhaMin, colMax, linhaMax);
 				(*pop)->UnitInPosition(colMin, linhaMin, colMax, linhaMax, (*pop)->getUnitList());
 			}
 		}
+		l++;
 	}
 }
 
@@ -53,9 +54,10 @@ void Mapa::BuildingsInGrid(int colMax, int colMin, int linhaMax, int linhaMin)
 			for (auto pop = populacoes.begin(); pop != populacoes.end(); ++pop)
 			{
 				(*pop)->BuildingInPosition(colMin, linhaMin, (*pop)->getBuildingList());
+				//(*pop)->BuildingInPosition(colMin, linhaMin, colMax, linhaMax, (*pop)->getBuildingList());
 			}
 		}
-	line++;
+		line++;
 	}
 	
 }

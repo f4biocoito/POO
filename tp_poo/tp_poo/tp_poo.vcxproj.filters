@@ -15,22 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Simulacao.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Caracteristicas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="colonia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Configuracao.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Consola.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Defines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Edificios.h">
@@ -53,16 +44,10 @@
     <ClCompile Include="Seres.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Simulacao.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Caracteristicas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="colonia.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Configuracao.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Consola.cpp">

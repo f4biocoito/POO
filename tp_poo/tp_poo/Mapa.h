@@ -16,14 +16,15 @@ public:
 	vector <Colonia*> populacoes;
 	void UnitsInGrid(int colMax, int colMin, int linhaMax, int linhaMin);
 	void BuildingsInGrid(int colMax, int colMin, int linhaMax, int linhaMin);
+
 	void setX(int x);
 	void setY(int y);
 	void setFocoX(int x);
 	void setFocoY(int y);
 	
 	Colonia* getPop(char p);
-	int getX(){return dimx;}
-	int getY(){return dimy;}
+	int getX()const{return dimx;}
+	int getY()const{return dimy;}
 
 };
 

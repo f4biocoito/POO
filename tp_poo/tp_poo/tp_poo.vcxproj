@@ -144,26 +144,21 @@
   <ItemGroup>
     <ClInclude Include="Caracteristicas.h" />
     <ClInclude Include="colonia.h" />
-    <ClInclude Include="Configuracao.h" />
     <ClInclude Include="Consola.h" />
-    <ClInclude Include="Defines.h" />
     <ClInclude Include="Edificios.h" />
     <ClInclude Include="Load.h" />
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="Perfil.h" />
     <ClInclude Include="Seres.h" />
-    <ClInclude Include="Simulacao.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Caracteristicas.cpp" />
     <ClCompile Include="colonia.cpp" />
-    <ClCompile Include="Configuracao.cpp" />
     <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Edificios.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mapa.cpp" />
     <ClCompile Include="Seres.cpp" />
-    <ClCompile Include="Simulacao.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
