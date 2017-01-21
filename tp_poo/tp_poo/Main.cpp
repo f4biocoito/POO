@@ -4,7 +4,7 @@
 using namespace std;
 
 int scrollX = 0, scrollY = 0;
-
+char car;
 
 int main() {
 
@@ -38,9 +38,27 @@ int main() {
 					desenhaTab();
 					map.BuildingsInGrid(scrollX + 8, scrollX, scrollY + 8, scrollY);
 					map.UnitsInGrid(scrollX + 8, scrollX, scrollY + 8, scrollY);
-					leComandosJogo();
+
+					
+					car =Consola::getch();
+
+					if (car == Consola::ESCAPE) break;
+					if ((car != Consola::ESQUERDA) && (car != Consola::DIREITA) && (car != Consola::CIMA) && (car != Consola::BAIXO)) {
+						if (car == Consola::ENTER) continue; //equivale ao comando NEXT
+						else {
+							leComandosJogo();
+							//jogadaPC(jogadasPC);
+							//jogadasPC++;
+							continue;
+						}
+					}
+				
+					
+					scroll(car); //actualiza scroll
 					system("PAUSE > NULL");
 				}
+
+
 				else if (jogoTerminado) {
 					break;
 				}
