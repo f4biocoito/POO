@@ -53,6 +53,28 @@ int main() {
 }
 	
 
+	//while (!sair) //ciclo principal
+	//{
+	//// while ciclo de leitura de comandos
+	////{le comandos }
+	//
+	//Consola::clrscr();
+	//car=Consola::getch();
+	//if (car == Consola::ESCAPE) break;
+	//if ((car != Consola::ESQUERDA) && (car != Consola::DIREITA) && (car != Consola::CIMA) && (car != Consola::BAIXO)) 
+	//{
+	//	if (car == Consola::ENTER) continue;
+	//	else 
+	//	{
+	//		//leComandos();
+	//		//joga pc
+	//		continue;
+	//	}
+	//}
+	////SCROLL
+	//scroll(car);
+	//} //FIM DO CICLO WHILE DE SAIR 
+
 
 
 void scroll(char car) 
@@ -127,7 +149,7 @@ bool leComandosMenu()
 			{
 				(*pop)->setMoedas(coins);
 			}
-			cout << "Definidas as moedas para o jogo. ";
+			cout << "moedas";
 			return true;
 		}
 
@@ -172,7 +194,7 @@ bool leComandosMenu()
 
 			const char *c=primeiro_parametro.c_str();
 
-			Colonia* aux = map.getPop(*(c)); 
+			Colonia* aux = map.getPop(*(c)); //ja temos um mapa que tem colonias temos que por esta la dentro
 
 			int x, y;
 			x = stoi(segundo_parametro);
@@ -180,7 +202,7 @@ bool leComandosMenu()
 
 			aux->addCastle(x, y, "cast1");
 
-			map.populacoes.push_back(aux); 
+			map.populacoes.push_back(aux); //assim fica no vetor das populacoes
 		
 			return true;
 		}
@@ -308,30 +330,7 @@ bool leComandosJogo()
 
 		if (ident_comando == "list") {
 			
-			// listar status de colonia 
-			iss >> primeiro_parametro; //qual colonia 
-	
-			const char (*c) = primeiro_parametro.c_str();
-
-			for (auto pop = map.populacoes.begin(); pop != map.populacoes.end(); ++pop)
-			{
-				if ( (*c) == (*pop)->getId() )
-				{
-					Consola::clrscr();
-					Consola::setTextColor(Consola::AZUL);
-					Consola::gotoxy(0, 0);
-					cout << "Estado do Jogo:";
-					Consola::gotoxy(0, 3);
-					Consola::setTextColor(Consola::PRETO);
-					cout<< "Moedas: " << (*pop)->getMoedas();
-					cout<< "\nNumero de Edificios: " << (*pop)->getNumBuildings();
-					cout << "\nNumero de Unidades : " << (*pop)->getNumUnits();
-					
-					
-
-				}
-			}
-
+			return true;
 		}
 
 		if (ident_comando == "listp") {
