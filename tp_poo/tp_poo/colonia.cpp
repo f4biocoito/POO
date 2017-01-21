@@ -241,11 +241,11 @@ int Colonia::build(int numBuilds)
 //informa??o
 int Colonia:: printBuildingList()
 {
-    int y = 12;
+    int y = 6;
     vector<Edificio*>::iterator it;
     for(it = BuildingList.begin(); it != BuildingList.end(); ++it) 
     {
-        Consola::gotoxy(28,y);
+        Consola::gotoxy(0,y);
         cout<<(*it)->getHP()<<"\t"<<(*it)->getId()<<"   ("<<(*it)->getCordX()<<','<<(*it)->getCordY()<<")";
  
         y++;

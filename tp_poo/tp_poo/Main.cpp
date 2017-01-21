@@ -352,6 +352,10 @@ bool leComandosJogo()
 					cout<< "Moedas: " << (*pop)->getMoedas();
 					cout<< "\nNumero de Edificios: " << (*pop)->getNumBuildings();
 					cout << "\nNumero de Unidades : " << (*pop)->getNumUnits();
+					
+					(*pop)->printBuildingList();
+					int altura=(*pop)->getNumBuildings();
+					(*pop)->printUnitList( altura +6);
 					system("PAUSE > NULL");
 					Consola::clrscr();
 				}
@@ -471,3 +475,4 @@ string getCaracteristicas()
 
 	return oss.str();
 }
+
