@@ -4,7 +4,7 @@
 Colonia::Colonia(char name) {
 	id = name; 
 	castExiste = false; 
-
+	moedas=0;
 	numQuint = 0;
 	numUnits = 0; 
 	numBuildings = 0; 
@@ -48,6 +48,7 @@ void Colonia::addTower(int x, int y, string name)
 	BuildingList.push_back(e);
 	numTorres++;
 	incNumBuildings();
+
 }
 void Colonia::removeCastle() //vai ter que terminar o jogo
 {

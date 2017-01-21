@@ -304,38 +304,46 @@ bool leComandosJogo()
 
 		//setmoedas colonia num
 
-		if (ident_comando == "build") {
+		if (ident_comando == "build") 
+		{
 			iss >> primeiro_parametro; //nome edificio
 			iss >> segundo_parametro; //linha
 			iss >> terceiro_parametro; //coluna 
-			//deve ser para criar o castelo na colonia 'a'
+		
 			const char *c = "a";
 			Colonia* aux = map.getPop(*(c));
 			int x, y;
 			x = stoi(segundo_parametro);
 			y = stoi(terceiro_parametro);
-			if (primeiro_parametro == "torre") {
+			if (primeiro_parametro == "torre") 
+			{
 				aux->addTower(x, y, primeiro_parametro);
+				int moedas = aux->getMoedas();
+				aux->setMoedas(moedas - 30);
 			}
-			if (primeiro_parametro == "quinta") {
+			if (primeiro_parametro == "quinta") 
+			{
 				aux->addFarm(x, y, primeiro_parametro);
+				int moedas = aux->getMoedas();
+				aux->setMoedas(moedas - 20);
 			}
+			
 			map.populacoes.push_back(aux);
 			return true;
 		}
 
-		if (ident_comando == "list") {
-			
-			// listar status de colonia 
+		if (ident_comando == "list")
+		{
 			iss >> primeiro_parametro; //qual colonia 
 	
 			const char (*c) = primeiro_parametro.c_str();
-
 			for (auto pop = map.populacoes.begin(); pop != map.populacoes.end(); ++pop)
 			{
 				if ( (*c) == (*pop)->getId() )
 				{
+					
 					Consola::clrscr();
+					
 					Consola::setTextColor(Consola::AZUL);
 					Consola::gotoxy(0, 0);
 					cout << "Estado do Jogo:";
@@ -344,12 +352,10 @@ bool leComandosJogo()
 					cout<< "Moedas: " << (*pop)->getMoedas();
 					cout<< "\nNumero de Edificios: " << (*pop)->getNumBuildings();
 					cout << "\nNumero de Unidades : " << (*pop)->getNumUnits();
-					
-					
-
+					system("PAUSE > NULL");
+					Consola::clrscr();
 				}
 			}
-
 		}
 
 		if (ident_comando == "listp") {
