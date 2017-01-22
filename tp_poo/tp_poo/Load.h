@@ -10,7 +10,6 @@
 #include <cstdlib>
 #include <vector>
 
-#include "Caracteristicas.h"
 #include "colonia.h"
 #include "Consola.h"
 #include "Edificios.h"
@@ -33,7 +32,8 @@ bool leComandosMenu();
 bool leComandosJogo();
 string getComandos();
 string getCaracteristicas();
-Mapa map; 
+Mapa map;
+vector <Perfil*> caracteristicas;
 
 bool sair = false;
 int menu();

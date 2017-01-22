@@ -17,6 +17,7 @@ int main() {
 
 	Colonia* jogador = new Colonia('a'); //cria colonia do jogador - obrigatoria
 	map.populacoes.push_back(jogador);
+	
 
 	int j;
 	do {
@@ -222,22 +223,56 @@ bool leComandosMenu()
 		}
 
 		else if (ident_comando == "mkperfil") {
-			cout << "nao implementado" << endl;
+			iss >> primeiro_parametro;
+			const char *c = primeiro_parametro.c_str();
+			Perfil* perfil = new Perfil();
+			perfil->setNome(*c);
+			caracteristicas.push_back(perfil);
+			cout << "Perfil criado" << endl;
 			return true;
 		}
 
 		else if (ident_comando == "addperfil") {
-			cout << "nao implementado" << endl;
+			iss >> primeiro_parametro;
+			const char *c = primeiro_parametro.c_str();
+			for (auto ccc = caracteristicas.begin(); ccc != caracteristicas.end(); ++ccc)
+			{
+				if ((*c) == (*ccc)->getNome())
+				{
+					iss >> segundo_parametro;
+					(*ccc)->addCarac(segundo_parametro);
+				}
+			}
+			cout << "Caracteristica adicionada" << endl;
 			return true;
 		}
 
 		else if (ident_comando == "subperfil") {
-			cout << "nao implementado" << endl;
+			iss >> primeiro_parametro;
+			const char *c = primeiro_parametro.c_str();
+			for (auto ccc = caracteristicas.begin(); ccc != caracteristicas.end(); ++ccc)
+			{
+				if ((*c) == (*ccc)->getNome())
+				{
+					iss >> segundo_parametro;
+					(*ccc)->subCarac(segundo_parametro);
+				}
+			}
+			cout << "Caracteristica removida" << endl;
 			return true;
 		}
 
 		else if (ident_comando == "rmperfil") {
-			cout << "nao implementado" << endl;
+			iss >> primeiro_parametro;
+			const char *c = primeiro_parametro.c_str();
+			for (auto ccc = caracteristicas.begin(); ccc != caracteristicas.end(); ++ccc)
+			{
+				if ((*c) == (*ccc)->getNome())
+				{
+					//caracteristicas.erase(ccc); //nao sei se isto tira do vetor
+				}
+			}
+			//cout << "Perfil removido" << endl;
 			return true;
 		}
 

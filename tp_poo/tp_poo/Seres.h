@@ -31,7 +31,7 @@ protected:
 
 	string status; //estado da unidade - atacar, fugir, defender
 
-	//Perfil pf;
+	
 
 public:
 	Seres(string id, int hp = 10,int forca = 10, int velocidade = 1, int dano = 1, int defesa = 1, int cordX=0, int cordY=0)
