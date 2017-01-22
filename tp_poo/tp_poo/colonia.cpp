@@ -57,23 +57,7 @@ void Colonia::removeCastle() //vai ter que terminar o jogo
 
 
 //adicionar seres
-void Colonia::addSer(int x, int y, string name)
-{
 
-}
-
-//void Colonia::mkeSer(string name)
-//{
-//    for(vector<Edificio*>::iterator it = BuildingList.begin(); it != BuildingList.end(); ++it) 
-//    {
-//        if(((*it)->getId()).at(0)=='Q')
-//        {
-//            Seres* u = new Soldado((*it)->getCordX(),(*it)->getCordY(),name);
-//            UnitList.push_back(u);
-//            incNumUnits();
-//        }
-//    }
-//}
 
 //verifica posicoes e desenha
 void Colonia::UnitInPosition(int x, int y, int xMax, int yMax, vector <Seres *> UList) //acho que esta desenha
@@ -229,14 +213,7 @@ void Colonia::atacado(string vitima, int dano) //retira hp a vitima
 }
 
 //constroi
-void Colonia::setBuild(string idu, string nome, int x, int y)
-{
 
-}
-int Colonia::build(int numBuilds) 
-{
-	return 0;
-}
 
 //informa??o
 int Colonia:: printBuildingList()

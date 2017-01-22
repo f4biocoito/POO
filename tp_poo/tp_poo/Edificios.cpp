@@ -1,6 +1,23 @@
 
 #include "Edificios.h"
 
+
+void Edificio::upgrade()
+{
+	if (tipo == 't') {
+		defesa+=2;
+		ataque+=1;
+	}
+
+	if (tipo == 'q')
+	{
+		gera+=1;
+		defesa+=1;
+	}
+}
+
+
+
 void Edificio::perdeHP(int dano) 
 { 
 	hp = hp - dano; 

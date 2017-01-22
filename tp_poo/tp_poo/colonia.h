@@ -43,7 +43,7 @@ public:
 	void setcastExiste(bool existecast){castExiste=existecast;}
 
 //set
-    void setMoedas(int coins){ moedas = coins; }
+    void setMoedas(int coins){ moedas =+ coins; }
 
 //incrementa e decrementa unidades e edificios
     void incNumUnits(){numUnits++;}
@@ -57,9 +57,6 @@ public:
     void addTower(int x, int y, string name);
     void removeCastle();
  
-//adicionar unidades - NAO E BEM ISTO MAS FICA A IDEIA - faltam os perfis / caracteristicas
-    void addSer(int x, int y, string name);
- //   void mkeSer(string name);
 
  //verifica posicoes
 	void UnitInPosition(int x,int y,int xMax, int yMax, vector <Seres* > UList);
@@ -79,9 +76,6 @@ public:
     int ataca(string idu);
     void atacado(string idu, int dano);
 
- //constroi
-    void setBuild(string idu,string nome,int x,int y);
-    int build (int numBuilds);
    
  //informacao
     int printBuildingList();
