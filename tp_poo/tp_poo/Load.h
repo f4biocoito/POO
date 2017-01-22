@@ -24,7 +24,6 @@ using namespace std;
 
 bool jogoIniciado = false;
 bool jogoTerminado = false;
-int oponentes = 0;
 
 void scroll(char car);
 bool leComandosMenu();
