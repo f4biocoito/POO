@@ -45,7 +45,7 @@ class Castelo :public Edificio {
 
 public:
 	Castelo(int x, int y, string sis) :Edificio(x, y, sis) { hp = 50; hpMax = 50; nivel=0; tipo='c'; defesa=10; gera=0; visao=0; ataque=0; }
-	//Castelo (const Castelo & c){id=c.id; hp=c.hp; cordX=c.cordX; cordY=c.cordY;} construtor copia 
+	Castelo (const Castelo & c)=delete; 
 	void desenha(int x, int y);
 };
 

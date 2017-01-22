@@ -245,10 +245,11 @@ void Colonia :: printUnitList(int y)
     }
 }
 
+/*
 string infoSel(string nome)
 {
 	ostringstream oss;
 	oss << "a" << endl;
 	return oss.str();
 }
-
+*/

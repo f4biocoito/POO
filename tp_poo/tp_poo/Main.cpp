@@ -460,12 +460,34 @@ bool leComandosJogo()
 		}
 
 		if (ident_comando == "upgrade") {
+			iss >> primeiro_parametro; //nome edificio
 
+			for (auto ed = map.populacoes[0]->getBuildingList().begin(); ed != map.populacoes[0]->getBuildingList().end(); ed++)
+			{
+				if ((*ed)->getId() == primeiro_parametro) //encontra edificio
+				{
+					(*ed)->upgrade();
+					map.populacoes[0]->setMoedas(-10); //retira 10 moedas
+				}
+			}
 			return true;
 		}
 
 		if (ident_comando == "sell") {
+			iss >> primeiro_parametro; //nome edificio
 
+			for (auto ed = map.populacoes[0]->getBuildingList().begin(); ed != map.populacoes[0]->getBuildingList().end(); ed++)
+			{
+				if ((*ed)->getId() == primeiro_parametro) //encontra edificio
+				{
+					char tipo = (*ed)->getTipo();
+					int nivel = (*ed)->getNivel();
+					if (tipo == 't')
+						map.populacoes[0]->setMoedas(15 + (10 * nivel));
+					else if (tipo == 'q')
+						map.populacoes[0]->setMoedas(10 + (10 * nivel));
+				}
+			}
 			return true;
 		}
 
@@ -496,7 +518,7 @@ bool leComandosJogo()
 		//erase nome
 		//load ficheiro
 
-		if (ident_comando == "sair") {
+		if (ident_comando == "fim") {
 			jogoIniciado=false;
 			jogoTerminado=true;
 			return true;
