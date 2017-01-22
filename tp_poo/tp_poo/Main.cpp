@@ -1,4 +1,4 @@
-
+ï»¿
 #include "Load.h"
 
 using namespace std;
@@ -117,6 +117,8 @@ bool leComandosMenu()
 
 		if (ident_comando == "dim")
 		{
+			maxX = 20;
+			maxY = 40;
 			iss >> primeiro_parametro;
 			if (primeiro_parametro != "")
 				maxX = stoi(primeiro_parametro);
@@ -125,15 +127,16 @@ bool leComandosMenu()
 			if (segundo_parametro != "")
 				maxY = stoi(segundo_parametro);
 
-			if ((maxX<30 || maxX>500) || (maxY<30 || maxY>500))
+			if ((maxX<20 || maxX>40) || (maxY<40 || maxY>60))
 			{
 				Consola::gotoxy(0, 31);
-				cout << "Insira valores validos. (30 a 500)\n";
-				break;
+				cout << "Insira valores validos. (20 a 60)\n";
+				return false;
 			}
 		
 			map.setX(maxX);
 			map.setY(maxY);
+			cout << "Dimensao atualizada." << endl;
 				
 			return true;
 		}
@@ -151,28 +154,32 @@ bool leComandosMenu()
 
 		else if (ident_comando == "oponentes") {
 			iss >> primeiro_parametro;
-			int num = stoi(primeiro_parametro);
-			if (num > 0 && num < 10) {
+			oponentes = stoi(primeiro_parametro);
+			if (oponentes > 0 && oponentes < 5) {
 				int bb = 98;//ascii para b
 				char cc;
 				int x, y;
 
-				for (int i = 0; i < num; i++) {
+				for (int i = 0; i < oponentes; i++) {
 					string nom = "cast";
 					cc = static_cast<char>(bb++);
-					x = rand() % 40; //é preciso verificar se ja existe algum nessa posicao
-					y = rand() % 40;
+					x = rand() % 20; //e preciso verificar se ja existe algum nessa posicao
+					y = rand() % 20;
 					ostringstream oos;
 					oos.clear();
 					oos << (i + 2);
 					nom += oos.str();
-					//cout << cc << " " << nom << endl;
+					cout << cc << " " << nom << endl;
 					Colonia* jogador = new Colonia(cc); //cria colonia dos oponentes
 					jogador->addCastle(x, y, nom); //adicionar um castelo para o jogador
 					map.populacoes.push_back(jogador);
 				}
-			}		
-			return true;
+					
+				cout << "Criados os oponentes." << endl;
+				return true;
+			}
+			oponentes = 0;
+			return false;
 		}
 
 		else if (ident_comando == "comandos") {
@@ -181,6 +188,7 @@ bool leComandosMenu()
 			Consola::gotoxy(0, 1);
 			//Consola::setTextColor(Consola::PRETO);
 			cout << getComandos();
+			return true;
 		}
 
 		else if (ident_comando == "castelo") {
@@ -190,36 +198,46 @@ bool leComandosMenu()
 
 			const char *c=primeiro_parametro.c_str();
 
-			Colonia* aux = map.getPop(*(c)); 
+			//Colonia* aux = map.getPop(*(c)); 
 
-			int x, y;
-			x = stoi(segundo_parametro);
-			y = stoi(terceiro_parametro);
+			//int x, y;
+			//x = stoi(segundo_parametro);
+			//y = stoi(terceiro_parametro);
 
-			aux->addCastle(x, y, "cast1");
+			//aux->addCastle(x, y, "cast1");
 
-			map.populacoes.push_back(aux); 
+			//map.populacoes.push_back(aux); 
 		
-			return true;
+			if (map.getPop(*(c))->getcastExiste() == false) {
+				int x, y;
+				x = stoi(segundo_parametro);
+				y = stoi(terceiro_parametro);
+				map.getPop(*(c))->addCastle(x, y, "cast1");
+				cout << "Criado o castelo." << endl;
+				return true;
+			}
+
+
+			return false;
 		}
 
 		else if (ident_comando == "mkperfil") {
-
+			cout << "nao implementado" << endl;
 			return true;
 		}
 
 		else if (ident_comando == "addperfil") {
-
+			cout << "nao implementado" << endl;
 			return true;
 		}
 
 		else if (ident_comando == "subperfil") {
-
+			cout << "nao implementado" << endl;
 			return true;
 		}
 
 		else if (ident_comando == "rmperfil") {
-
+			cout << "nao implementado" << endl;
 			return true;
 		}
 
@@ -244,16 +262,40 @@ bool leComandosMenu()
 		}
 
 		else if (ident_comando == "inicio") {
-			jogoIniciado = true;
-			cout << "Vamos dar inicio ao jogo.";
-			Consola::printText(10, 10, "Guerra dos Clas");
-			Consola::printText(10, 12, "Rafael Falcao e Fabio Coito");
-			Consola::printText(10, 14, "Trabalho de POO");
+			if (oponentes == 0) {
+				cout << "Precisas de oponentes para jogar" << endl;
+				return false;
+			}
+			else {
+				int bb = 97;//ascii para a
+				char cc;
+				for (int i = 0; i < oponentes; i++) {
+					cc = static_cast<char>(bb++);
+					if (map.getPop(cc)->getcastExiste() == false) { //ver se existe castelo
+						string nom = "cast";
+						int x, y;
+						x = rand() % 20; //e preciso verificar se ja existe algum nessa posicao
+						y = rand() % 20;
+						ostringstream oos;
+						oos.clear();
+						oos << (i + 1);
+						nom += oos.str();
+						cout << cc << " " << nom << endl;
+						map.getPop(cc)->addCastle(x, y, nom);
 
-			system("PAUSE > NULL");
-			Consola::clrscr();
-	
-			return true;
+					}
+				}
+				jogoIniciado = true;
+				Consola::printText(4, 4, "Vamos dar inicio ao jogo.");
+				Consola::printText(4, 6, "Guerra dos Clas");
+				Consola::printText(4, 8, "Rafael Falcao e Fabio Coito");
+				Consola::printText(4, 10, "Trabalho de POO");
+
+				system("PAUSE > NULL");
+				Consola::clrscr();
+				return true;
+			}
+			return false;
 		}
 	}
 	return false;
