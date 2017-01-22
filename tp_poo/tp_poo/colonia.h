@@ -35,7 +35,9 @@ public:
     int getNumUnits (){ return numUnits; }
     char getId (){ return id; }
 	int getMoedas () { return moedas; }
-    
+
+	int getXcast();
+	int getYcast();
     int getNumBuildings(){return numBuildings;}
   
 //verifica se castelo ja existe
@@ -57,6 +59,8 @@ public:
     void addTower(int x, int y, string name);
     void removeCastle();
  
+	//adicionar seres
+	void addSer(int x, int y, string nome);
 
  //verifica posicoes
 	void UnitInPosition(int x,int y,int xMax, int yMax, vector <Seres* > UList);

@@ -57,10 +57,17 @@ void Colonia::removeCastle() //vai ter que terminar o jogo
 
 
 //adicionar seres
+void Colonia::addSer(int x, int y, string name)
+{
+	Seres* e = new Seres(x, y, name);
+	UnitList.push_back(e);
+	incNumUnits();
+}
+
 
 
 //verifica posicoes e desenha
-void Colonia::UnitInPosition(int x, int y, int xMax, int yMax, vector <Seres *> UList) //acho que esta desenha
+void Colonia::UnitInPosition(int x, int y, int xMax, int yMax, vector <Seres *> UList)
 {	
 																						
     for(vector<Seres*>::iterator it = UList.begin(); it != UList.end(); ++it) {			
@@ -70,8 +77,9 @@ void Colonia::UnitInPosition(int x, int y, int xMax, int yMax, vector <Seres *> 
 		}
     }
 }
-void Colonia::BuildingInPosition(int x, int y, vector <Edificio *> BList) //esta nao esta a desenhar nada
-{																			//secalhar e melhor fazer como a dos seres
+
+void Colonia::BuildingInPosition(int x, int y, vector <Edificio *> BList)
+{
     for(auto it = BList.begin(); it != BList.end(); ++it) 
 	{
 		int edx=(*it)->getCordX();
@@ -140,6 +148,28 @@ void Colonia::setRepair(string idu,string ide)// mudar o destino do ser para o e
 //		}
 //	}
 //}
+
+
+int Colonia::getXcast()
+{
+	int x=0;
+	for (auto it = BuildingList.begin(); it != BuildingList.end(); it++)
+	{
+		if ((*it)->getId() == "cast1")
+			x = (*it)->getCordX();
+	}
+	return x;
+}
+int Colonia::getYcast()
+{
+	int y=0;
+	for (auto it = BuildingList.begin(); it != BuildingList.end(); it++)
+	{
+		if((*it)->getId()=="cast1")
+			y = (*it)->getCordY();
+	}
+	return y;
+}
 
 //ataques
 int Colonia::getXFromUnitID(string idu)
@@ -215,7 +245,7 @@ void Colonia::atacado(string vitima, int dano) //retira hp a vitima
 //constroi
 
 
-//informa??o
+//informacao
 int Colonia:: printBuildingList()
 {
     int y = 6;

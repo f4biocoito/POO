@@ -34,12 +34,10 @@ int main() {
 				}
 				else if (jogoIniciado)
 				{
-
 					Consola::clrscr();
 					desenhaTab();
 					map.BuildingsInGrid(scrollX + 8, scrollX, scrollY + 8, scrollY);
 					map.UnitsInGrid(scrollX + 8, scrollX, scrollY + 8, scrollY);
-
 					
 					car =Consola::getch();
 
@@ -53,26 +51,20 @@ int main() {
 							continue;
 						}
 					}
-				
 					
 					scroll(car); //actualiza scroll
 					system("PAUSE > NULL");
 				}
 
-
 				else if (jogoTerminado) {
 					break;
 				}
-
 			}
-
 		}
 	} while (j != 0);
 	return 0;
 }
 	
-
-
 
 void scroll(char car) 
 {
@@ -80,7 +72,7 @@ void scroll(char car)
 	if (car == Consola::DIREITA) scrollX++;
 	if (car == Consola::CIMA) scrollY--;
 	if (car == Consola::BAIXO) scrollY++;
-	if (scrollX<0) scrollX++; //nao permite valores negativos 
+	if (scrollX<0) scrollX++;
 	if (scrollY<0) scrollY++;
 	if (scrollX>maxX - 9) scrollX--;
 	if (scrollY>maxY - 9) scrollY--;
@@ -142,7 +134,8 @@ bool leComandosMenu()
 			return true;
 		}
 
-		else if (ident_comando == "moedas") {
+		else if (ident_comando == "moedas") 
+		{
 			iss >> primeiro_parametro;
 			int coins=stoi(primeiro_parametro);
 			for (auto pop = map.populacoes.begin(); pop != map.populacoes.end(); ++pop)
@@ -153,7 +146,8 @@ bool leComandosMenu()
 			return true;
 		}
 
-		else if (ident_comando == "oponentes") {
+		else if (ident_comando == "oponentes") 
+		{
 			iss >> primeiro_parametro;
 			oponentes = stoi(primeiro_parametro);
 			if (oponentes > 0 && oponentes < 5) {
@@ -183,32 +177,20 @@ bool leComandosMenu()
 			return false;
 		}
 
-		else if (ident_comando == "comandos") {
-		
-			//Consola::setTextColor(Consola::AZUL);
+		else if (ident_comando == "comandos") 
+		{
 			Consola::gotoxy(0, 1);
-			//Consola::setTextColor(Consola::PRETO);
 			cout << getComandos();
 			return true;
 		}
 
-		else if (ident_comando == "castelo") {
-			iss >> primeiro_parametro; //faccao
+		else if (ident_comando == "castelo") 
+		{
+			iss >> primeiro_parametro; //colonia
 			iss >> segundo_parametro; //x
 			iss >> terceiro_parametro; //y 
 
 			const char *c=primeiro_parametro.c_str();
-
-			//Colonia* aux = map.getPop(*(c)); 
-
-			//int x, y;
-			//x = stoi(segundo_parametro);
-			//y = stoi(terceiro_parametro);
-
-			//aux->addCastle(x, y, "cast1");
-
-			//map.populacoes.push_back(aux); 
-		
 			if (map.getPop(*(c))->getcastExiste() == false) {
 				int x, y;
 				x = stoi(segundo_parametro);
@@ -217,12 +199,11 @@ bool leComandosMenu()
 				cout << "Criado o castelo." << endl;
 				return true;
 			}
-
-
 			return false;
 		}
 
-		else if (ident_comando == "mkperfil") {
+		else if (ident_comando == "mkperfil") 
+		{
 			iss >> primeiro_parametro;
 			const char *c = primeiro_parametro.c_str();
 			Perfil* perfil = new Perfil();
@@ -232,7 +213,8 @@ bool leComandosMenu()
 			return true;
 		}
 
-		else if (ident_comando == "addperfil") {
+		else if (ident_comando == "addperfil") 
+		{
 			iss >> primeiro_parametro;
 			const char *c = primeiro_parametro.c_str();
 			for (auto ccc = caracteristicas.begin(); ccc != caracteristicas.end(); ++ccc)
@@ -247,7 +229,8 @@ bool leComandosMenu()
 			return true;
 		}
 
-		else if (ident_comando == "subperfil") {
+		else if (ident_comando == "subperfil") 
+		{
 			iss >> primeiro_parametro;
 			const char *c = primeiro_parametro.c_str();
 			for (auto ccc = caracteristicas.begin(); ccc != caracteristicas.end(); ++ccc)
@@ -262,21 +245,23 @@ bool leComandosMenu()
 			return true;
 		}
 
-		else if (ident_comando == "rmperfil") {
+		else if (ident_comando == "rmperfil") 
+		{
 			iss >> primeiro_parametro;
 			const char *c = primeiro_parametro.c_str();
 			for (auto ccc = caracteristicas.begin(); ccc != caracteristicas.end(); ++ccc)
 			{
 				if ((*c) == (*ccc)->getNome())
 				{
-					//caracteristicas.erase(ccc); //nao sei se isto tira do vetor
+					caracteristicas.erase(ccc); //nao sei se isto tira do vetor
 				}
 			}
-			//cout << "Perfil removido" << endl;
+			cout << "Perfil removido" << endl;
 			return true;
 		}
 
-		else if (ident_comando == "load") {
+		else if (ident_comando == "load") 
+		{
 			file = true;
 			iss>>primeiro_parametro;
 			cout << "primeiro";
@@ -296,7 +281,8 @@ bool leComandosMenu()
 			return true;
 		}
 
-		else if (ident_comando == "inicio") {
+		else if (ident_comando == "inicio") 
+		{
 			if (oponentes == 0) {
 				cout << "Precisas de oponentes para jogar" << endl;
 				return false;
@@ -306,7 +292,7 @@ bool leComandosMenu()
 				char cc;
 				for (int i = 0; i < oponentes; i++) {
 					cc = static_cast<char>(bb++);
-					if (map.getPop(cc)->getcastExiste() == false) { //ver se existe castelo
+					if (map.getPop(cc)->getcastExiste() == false) { //ver se nao existe castelo
 						string nom = "cast";
 						int x, y;
 						x = rand() % 20; //e preciso verificar se ja existe algum nessa posicao
@@ -379,7 +365,16 @@ bool leComandosJogo()
 			return true;
 		}
 
-		//setmoedas colonia num
+		if (ident_comando == "setmoedas")
+		{
+			iss >> primeiro_parametro;
+			const char *c = primeiro_parametro.c_str();
+			iss >> segundo_parametro;
+			int coins = stoi(segundo_parametro);
+			map.getPop(*(c))->setMoedas(coins);
+			cout << "Moedas adicionadas.";
+			return true;
+		}
 
 		if (ident_comando == "build") 
 		{
@@ -392,6 +387,15 @@ bool leComandosJogo()
 			int x, y;
 			x = stoi(segundo_parametro);
 			y = stoi(terceiro_parametro);
+
+			//verificar a posicao do castelo
+			int xx = aux->getXcast();
+			int yy = aux->getYcast();
+			if (xx - x < 10 || yy - y < 10) {
+				cout << "esta muito perto do castelo" << endl;
+				return false;
+			}
+
 			if (primeiro_parametro == "torre") 
 			{
 				aux->addTower(x, y, primeiro_parametro);
@@ -449,8 +453,28 @@ bool leComandosJogo()
 			return true;
 		}
 
-		if (ident_comando == "mkbuild") {
+		if (ident_comando == "mkbuild") 
+		{
+			iss >> primeiro_parametro; //nome edificio
+			iss >> segundo_parametro; //linha
+			iss >> terceiro_parametro; //coluna
+			iss >> quarto_parametro; //colonia
 
+			const char *c = quarto_parametro.c_str();
+			Colonia* aux = map.getPop(*(c));
+			int x, y;
+			x = stoi(segundo_parametro);
+			y = stoi(terceiro_parametro);
+			if (primeiro_parametro == "torre")
+			{
+				aux->addTower(x, y, primeiro_parametro);
+			}
+			if (primeiro_parametro == "quinta")
+			{
+				aux->addFarm(x, y, primeiro_parametro);
+			}
+			map.populacoes.push_back(aux);
+			cout << "Edificio adicionado" << endl;
 			return true;
 		}
 
@@ -459,7 +483,8 @@ bool leComandosJogo()
 			return true;
 		}
 
-		if (ident_comando == "upgrade") {
+		if (ident_comando == "upgrade") 
+		{
 			iss >> primeiro_parametro; //nome edificio
 
 			for (auto ed = map.populacoes[0]->getBuildingList().begin(); ed != map.populacoes[0]->getBuildingList().end(); ed++)
@@ -473,7 +498,8 @@ bool leComandosJogo()
 			return true;
 		}
 
-		if (ident_comando == "sell") {
+		if (ident_comando == "sell") 
+		{
 			iss >> primeiro_parametro; //nome edificio
 
 			for (auto ed = map.populacoes[0]->getBuildingList().begin(); ed != map.populacoes[0]->getBuildingList().end(); ed++)
@@ -491,15 +517,33 @@ bool leComandosJogo()
 			return true;
 		}
 
-		if (ident_comando == "ser") {
+		if (ident_comando == "ser") 
+		{
+			iss >> primeiro_parametro; //quantos
+			iss >> segundo_parametro; //perfil
 
+			const char *c = "a";
+
+			int quantos = stoi(primeiro_parametro);
+			int x, y;
+			for (int i = 0; i < quantos; i++) {
+				string nom = "ser";
+				x = rand() % 20; //e preciso verificar se ja existe algum nessa posicao
+				y = rand() % 20;
+				ostringstream oos;
+				oos.clear();
+				oos << (i + 1);
+				nom += oos.str();
+				cout << nom << endl;
+				Colonia* aux = map.getPop(*(c));
+				aux->addSer(x, y, nom);
+				map.populacoes.push_back(aux);
+			}
+			cout << "Foram adicionados os seres." << endl;
 			return true;
 		}
 
-		if (ident_comando == "next") {
-
-			return true;
-		}
+		//next
 
 		//nextn num
 

@@ -31,16 +31,13 @@ protected:
 
 	string status; //estado da unidade - atacar, fugir, defender
 
-	
-
 public:
-	Seres(string id, int hp = 10,int forca = 10, int velocidade = 1, int dano = 1, int defesa = 1, int cordX=0, int cordY=0)
+	Seres(int cX, int cY, string id, int hp = 10,int forca = 10, int velocidade = 1, int dano = 1, int defesa = 1)
 	{
-			
+		cordX = cX;
+		cordY = cY;
+		id = id;
 	}
-
-
-
 
 	//Funcoes get
 
@@ -62,6 +59,7 @@ public:
 
 	//Set
 	void setHP(int h) { hp = h; }
+	void setForca(int f) { forca = f; }
 	void setStatus(string estado) { status = estado; }
 	void setCordDestinoX(int x) { cordDestinoX = x; }
 	void setCordDestinoY(int y) { cordDestinoY = y; }
@@ -69,36 +67,7 @@ public:
 
 	void move();
 
-	void desenha(int x, int y) {}
-
-
-};
-
-
-class Perfil1 : Seres {
-
-	
-public:	
-	Perfil1(string id , int hp , int forca , int velocidade , int dano , int defesa , int cordX , int cord) :Seres(id="", hp = 10,  forca = 10, velocidade = 1, dano = 1, defesa = 1, cordX=0, cord=0) {}
-	void desenha(int x, int y)
-	{
-		x = x * 3 + 1;
-		y = y * 3 + 1;
-
-
-		Consola::setTextColor(Consola::CINZENTO);
-
-		Consola::gotoxy(x - 1, y - 1);
-		cout << (char)0 << (char)124;
-		Consola::setTextColor(Consola::VERMELHO);
-		cout << (char)62 << endl;
-		Consola::setTextColor(Consola::CINZENTO);
-		Consola::gotoxy(x - 1, y);
-		cout << (char)47 << (char)95 << (char)92 << endl;
-		Consola::gotoxy(x - 1, y + 1);
-		cout << (char)124 << (char)42 << (char)124 << endl;
-		Consola::setTextColor(Consola::PRETO);
-	}
+	void desenha(int x, int y);
 };
 
 
